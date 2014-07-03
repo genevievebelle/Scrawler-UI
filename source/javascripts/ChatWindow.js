@@ -1,4 +1,5 @@
 var ChatWindow = {
   messageInput: "#message",
-  chatLog: ".messagesDiv"
+  chatLog: ".messagesDiv",
+  sendButton: "#send-message"
 };
