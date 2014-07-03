@@ -1,10 +1,27 @@
 $(document).ready(function() {
   EventHandlerModule.bindClickEvents();
 
-  // Ajax request sending random code from URL to backend, get response that contains 
-  // the firebase roomkey, as well as an array of saved messages for that room
-  // pass room key in below
-  
-  FirebaseModule.createFireBase("roomkey");
+  var incomingUrl = window.location.search;
+  var roomId = incomingUrl.split('=')[1]
+
+  var sendRoomInfoRequest = function() {
+      $.ajax({
+      url: "http://scrawler.azurewebsites.net/chat/getroominformation?id="+roomId,
+      type: "GET",
+      success: function(data) {
+        getRoomId(data);
+      }
+    });
+  };
+
+  sendRoomInfoRequest();
+
+  var firebaseRoomId
+
+  var getRoomId = function(data) {
+    firebaseRoomId = data.fireBaseRoomId;
+  };
+
+  FirebaseModule.createFireBase(firebaseRoomId);
   FirebaseModule.bindFirebaseActions();
 });
