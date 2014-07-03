@@ -1,6 +1,9 @@
 var FirebaseModule = (function(){
-  var roomKey = "random";
-  var fb = new Firebase("https://intense-fire-3380.firebaseio.com/" + roomKey);
+  var fb;
+
+  var createFireBase = function(roomKey) {
+    fb = new Firebase("https://intense-fire-3380.firebaseio.com/" + roomKey);
+  }
 
   var bindFirebaseActions = function() {
     fb.on('child_added', FirebaseModule.snapshotFunction);
@@ -22,6 +25,7 @@ var FirebaseModule = (function(){
     fb: fb,
     sendMessageClickEvent: sendMessageClickEvent,
     snapshotFunction: snapshotFunction,
-    bindFirebaseActions: bindFirebaseActions
+    bindFirebaseActions: bindFirebaseActions,
+    createFireBase: createFireBase
   };
 })();
