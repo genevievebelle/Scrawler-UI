@@ -15,12 +15,7 @@ var FirebaseModule = (function(){
 
   var snapshotFunction = function(snapshot) {
     var message = snapshot.val();
-    displayChatMessage(message.text);
-  };
-
-  var displayChatMessage = function(text) {
-    $('<div/>').text(text).appendTo($(ChatWindow.chatLog));
-    $(ChatWindow.chatLog)[0].scrollTop = $(ChatWindow.chatLog)[0].scrollHeight;
+    ChatView.appendMessageDiv(message.text);
   };
 
   return {
