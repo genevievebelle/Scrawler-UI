@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
+    <div class="navbar-fixed-top top">
+      <ul class="immortalMessageList">
+      </ul>
+    </div>
+
     <div class="container main">
-      <div class="col-xs-12 nopadding">
-        <div>
-          <ul class="immortalMessageList">
-          </ul>
-        </div>
+      <div class="nopadding">
+        
         <div>
           <ul class="messagesDiv">
           </ul>
@@ -20,7 +22,7 @@
       </div>
     </div>
     <div class="footer navbar-fixed-bottom">
-      <div class='container'>
+      <div id="form">
         <form id="input">
           <input type="textarea" id="message" />
           <input type="submit" class="btn btn-primary btn-lg" id="send-message" value="send" />
