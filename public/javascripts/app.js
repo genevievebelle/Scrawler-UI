@@ -19,6 +19,8 @@ $(document).ready(function() {
       }
     });
   };
-
+  
+  Session.set();
+  Session.expireSession();
   sendRoomInfoRequest();
 });

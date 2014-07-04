@@ -4,6 +4,7 @@ var ServerRequestModule = (function(){
 
   var getRoomId = function(data) {
     console.log(data.Messages.content)
+    localStorage.setItem("EntryTime", timenow);
     FirebaseModule.createFireBase(data.FireBaseRoomId);
     FirebaseModule.bindFirebaseActions();
   };
