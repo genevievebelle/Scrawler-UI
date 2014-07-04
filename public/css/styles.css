@@ -1,21 +1,25 @@
 body {
 	font-size: 24px;
 	padding-top: 0px;
-	background: url("../img/skulls.png");
+	background-color: #151515;
+	color: white;
 }
 
 .container {
-	background-color: white;
+	background-color: #494949;
 	padding: 10px 0px;
+	border-radius: 0 0 5px 5px;
 }
 
 #message {
 	width: 300px;
 	height: 45px;
 	position: relative;
-	top: 1px;
+	top: 0px;
 	border-radius: 5px;
 	padding-left: 5px;
+	color: black;
+	background-color: #B6B6B6;
 }
 
 .messagesDiv {
@@ -32,7 +36,7 @@ body {
 }
 
 .messagesDiv li:nth-child(odd) {
-	background-color: #FFF8F6;
+	background-color: #3A3A3A;
 }
 
 .nopadding {
@@ -45,10 +49,11 @@ body {
 }
 
 #send-message {
-	background-color: #FF0000;
-	border-color: #800000;
+	background-color: #C63D0F;
+	border-color: #C63D0F;
 }
 
 #send-message:hover {
-	background-color: #800000;
+	background-color: #631E08;
+	border-color: #631E08;
 };
