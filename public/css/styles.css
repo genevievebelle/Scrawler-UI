@@ -31,6 +31,10 @@ body {
 	background-color: #B6B6B6;
 }
 
+.messagesDiv {
+	padding-left: 0px;
+}
+
 .messagesDiv li {
 	list-style: none;
 	padding-left: 20px;
