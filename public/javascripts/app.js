@@ -1,5 +1,6 @@
 $(document).ready(function() {
   EventHandlerModule.bindClickEvents();
+<<<<<<< HEAD
 
   var incomingUrl = window.location.search;
   var roomId = incomingUrl.split('=')[1];
@@ -23,4 +24,7 @@ $(document).ready(function() {
   Session.set();
   Session.expireSession();
   sendRoomInfoRequest();
+=======
+  ServerRequestModule.sendRoomInfoRequest();
+>>>>>>> 4f30064ca887ee1115d359c7ac9b9adc1d31ce1e
 });

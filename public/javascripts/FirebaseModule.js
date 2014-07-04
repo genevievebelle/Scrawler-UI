@@ -3,10 +3,11 @@ var FirebaseModule = (function(){
 
   var createFireBase = function(roomKey) {
     fb = new Firebase("https://intense-fire-3380.firebaseio.com/" + roomKey);
-  }
+  };
 
   var bindFirebaseActions = function() {
-    fb.on('child_added', FirebaseModule.snapshotFunction);
+    var query = fb.limit(50);
+    query.on('child_added', FirebaseModule.snapshotFunction);
   };
 
   var sendMessageClickEvent = function(event) {
