@@ -7,14 +7,20 @@
   </head>
   <body>
     <div class="container">
-      <div>
-        <ul class="messagesDiv">
-        </ul>
+      <div class="col-xs-12">
+        <div>
+          <ul class="immortalMessageDiv">
+          </ul>
+        </div>
+        <div>
+          <ul class="messagesDiv">
+          </ul>
+        </div>
+        <form id="input">
+          <input type="textarea" id="message" />
+          <input type="submit" class="btn btn-primary btn-lg" id="send-message" value="send" />
+        </form>
       </div>
-      <form id="input">
-        <input type="textarea" id="message" />
-        <input type="submit" class="btn btn-primary btn-lg" id="send-message" value="send" />
-      </form>
     </div>
   </body>
     <script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
