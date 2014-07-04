@@ -2,6 +2,7 @@ var ChatView = (function() {
   var appendMessageDiv = function(text) {
     $('<li/>').text(text).appendTo(ChatWindow.chatLog);
     ChatWindow.chatLog[0].scrollTop = ChatWindow.chatLog[0].scrollHeight;
+    window.scrollTo(0,document.body.scrollHeight);
   };
 
   var appendImmortalList = function(messageContent, messageId, Timestamp) {
