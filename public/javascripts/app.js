@@ -1,6 +1,5 @@
 $(document).ready(function() {
   EventHandlerModule.bindClickEvents();
-<<<<<<< HEAD
 
   var incomingUrl = window.location.search;
   var roomId = incomingUrl.split('=')[1];
@@ -21,10 +20,11 @@ $(document).ready(function() {
     });
   };
   
-  Session.set();
-  Session.expireSession();
+  Session.initialSet();  //figure out the best place to put this session stuff.
+  Session.expireSession();  //need to allow user to reset sesssion on rescan. Can use Session.reset().
+  setInterval("Session.expireSession()", 10000);  
+
   sendRoomInfoRequest();
-=======
+
   ServerRequestModule.sendRoomInfoRequest();
->>>>>>> 4f30064ca887ee1115d359c7ac9b9adc1d31ce1e
 });

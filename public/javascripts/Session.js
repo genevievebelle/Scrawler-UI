@@ -1,34 +1,44 @@
 var Session = {
-	set: function(){
+	initialSet: function(){
 	var time = Date.now();
 	var thisSession = localStorage.getItem("EntryTime");
-    if(thisSession == null)
+    if(thisSession === null)
 	    {
 	      localStorage.setItem("EntryTime", time)
 	    }
 	},
 
+	reset: function(){
+		localStorage.setItem("EntryTime", Date.now());
+	},
+
 	checkTime: function(){
-	var sessionStart = parseInt(localStorage.getItem("EntryTime"));
-	var sessionEnd = sessionStart + 4000000;
+	var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 60000; //600,000ms = 10mins, 60,000ms = 1min.
 	var time = parseInt(Date.now());
 
-	if( time > sessionEnd)
+	if( time>sessionEnd)
 		{
-			console.log(time - sessionEnd);
+			console.log(time - sessionEnd); //If positive, should return true.
 			return true;
 		}
+		else console.log("Time remaining:", sessionEnd - time);
 	},
 
 	expireSession: function(){
-		if (this.checkTime == true){
+		var bool = this.checkTime();
+		if (bool == true){
 			console.log();
-			alert("Times up!");
+			alert("Times up! Scan your toilet token again to refresh the session.");
+			this.clearChat();
 			return;
 		}
 		else {
 			console.log("wait for it...");
-			this.expireSession();
 		}
+	},
+
+	clearChat: function(){
+		$(".messagesDiv").empty();
+		$("#form").empty();	//need to test that this kicks them out adequately.
 	}
 };
