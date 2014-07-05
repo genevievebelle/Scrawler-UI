@@ -1,6 +1,9 @@
-var ServerRequestModule = (function(){
+var ServerRequest = (function(){
   var incomingUrl = window.location.search;
-  var roomId = incomingUrl.split('=')[1];
+
+  var getRoomId = function(url) {
+    return url.split('=')[1];
+  };
 
   var getRoomInfo = function(data) {
     var Immortals = data.Messages;
@@ -11,15 +14,18 @@ var ServerRequestModule = (function(){
 
   var sendRoomInfoRequest = function() {
     $.ajax({
-      url: "http://scrawler.azurewebsites.net/chat/getroominformation?id="+roomId,
+      url: "http://scrawler.azurewebsites.net/chat/getroominformation?id="+ServerRequest.getRoomId(incomingUrl),
       type: "GET",
-      success: getRoomInfo,
+      success: ServerRequest.getRoomInfo,
       failure: function() {
         console.log("ajax failure");
       }
     });
   };
+
   return {
-    sendRoomInfoRequest: sendRoomInfoRequest
+    sendRoomInfoRequest: sendRoomInfoRequest,
+    getRoomId: getRoomId,
+    getRoomInfo : getRoomInfo
   };
 })();

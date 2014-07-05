@@ -6,7 +6,7 @@ var FirebaseModule = (function(){
   };
 
   var bindFirebaseActions = function() {
-    var query = fb.limit(50);
+    var query = fb.limit(200);
     query.on('child_added', FirebaseModule.snapshotFunction);
   };
 
