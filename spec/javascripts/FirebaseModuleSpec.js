@@ -12,12 +12,4 @@ describe("FirebaseModule", function() {
       expect(window.Firebase).toHaveBeenCalledWith("https://intense-fire-3380.firebaseio.com/OW763");
     });
   });
-
-  // describe("bindFirebaseActions", function() {
-
-
-
-  // });
-
-  // });
 });
