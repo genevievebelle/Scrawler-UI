@@ -1,18 +1,27 @@
+html {
+	height: 100%;
+}
+
 body {
 	font-size: 24px;
 	padding-top: 0px;
 	background-color: #151515;
 	color: white;
+	height: 100%;
 }
 
 .container {
 	background-color: #494949;
 	padding: 10px 0px;
-	border-radius: 0 0 5px 5px;
+}
+
+.main {
+	min-height: 100%;
+	padding-bottom: 56px;
 }
 
 #message {
-	width: 300px;
+	width: 600px;
 	height: 45px;
 	position: relative;
 	top: 0px;
@@ -24,7 +33,21 @@ body {
 
 .messagesDiv {
 	padding-left: 0px;
+}
 
+.upvote {
+	margin-right: 10px;
+	font-size: 15px;
+	font-weight: 900;
+}
+
+.orange {
+	color: #C63D0F;
+}
+
+.red {
+	color: red;
+	font-size: 20px;
 }
 
 .messagesDiv li {
@@ -51,9 +74,35 @@ body {
 #send-message {
 	background-color: #C63D0F;
 	border-color: #C63D0F;
+	padding: 10px 30px;
 }
 
 #send-message:hover {
 	background-color: #631E08;
 	border-color: #631E08;
 };
+
+.immortalMessageList li {
+	list-style: none;
+}
+
+.footer {
+	min-width: 100%;
+	background-color: #494949;
+	border-top: 1px solid black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#form {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.top {
+	background-color: #494949;
+	border-bottom: 1px solid black;
+}
+
+
+
