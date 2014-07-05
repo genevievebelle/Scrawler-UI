@@ -1,10 +1,10 @@
-describe("ServerRequestModule", function() {
+describe("ServerRequest", function() {
 
   describe("getRoomId", function() {
 
     it("it extracts roomId correctly", function() {
       var url = "http://hidden-falls-5768.herokuapp.com/?id=HDK72";
-      var roomId = ServerRequestModule.getRoomId(url);
+      var roomId = ServerRequest.getRoomId(url);
       expect(roomId).toEqual("HDK72");
     });
   });
@@ -17,18 +17,18 @@ describe("ServerRequestModule", function() {
       spyOn(ImmortalMessage, "buildImmortalMessage");
       spyOn(FirebaseModule, "createFireBase");
       spyOn(FirebaseModule, "bindFirebaseActions");
-      ServerRequestModule.getRoomInfo(data);
+      ServerRequest.getRoomInfo(data);
     });
 
     it("calls buildImmortalMessage on ImmortalMessage", function() {
       expect(ImmortalMessage.buildImmortalMessage).toHaveBeenCalledWith(data.Messages);
     });
 
-    it("calls createFireBase on FirebaseModule", function() {
+    it("calls createFireBase on Firebase", function() {
       expect(FirebaseModule.createFireBase).toHaveBeenCalledWith(data.FireBaseRoomId);
     });
 
-    it("calls bindFirebaseActions on FirebaseModule", function() {
+    it("calls bindFirebaseActions on Firebase", function() {
       expect(FirebaseModule.bindFirebaseActions).toHaveBeenCalled();
     });
   });
@@ -39,8 +39,8 @@ describe("ServerRequestModule", function() {
     var getRoomInfo;
 
     beforeEach(function() {
-      spyOn(ServerRequestModule, "getRoomId").and.returnValue("HDK72");
-      spyOn(ServerRequestModule, "getRoomInfo");
+      spyOn(ServerRequest, "getRoomId").and.returnValue("HDK72");
+      spyOn(ServerRequest, "getRoomInfo");
 
       spyOn($,'ajax').and.callFake(function(e) {
         ajax_params = e;
@@ -49,13 +49,13 @@ describe("ServerRequestModule", function() {
     });
 
     it("makes an ajax request to correct URL", function() {
-      ServerRequestModule.sendRoomInfoRequest();
+      ServerRequest.sendRoomInfoRequest();
       expect(ajax_params.url).toBe("http://scrawler.azurewebsites.net/chat/getroominformation?id=HDK72");
     });
 
     it("handles successful result of Ajax request", function () {
-      ServerRequestModule.sendRoomInfoRequest();
-      expect(ServerRequestModule.getRoomInfo).toHaveBeenCalled();
+      ServerRequest.sendRoomInfoRequest();
+      expect(ServerRequest.getRoomInfo).toHaveBeenCalled();
     });
   });
 });

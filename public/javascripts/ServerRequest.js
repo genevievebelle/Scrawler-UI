@@ -1,4 +1,4 @@
-var ServerRequestModule = (function(){
+var ServerRequest = (function(){
   var incomingUrl = window.location.search;
 
   var getRoomId = function(url) {
@@ -14,9 +14,9 @@ var ServerRequestModule = (function(){
 
   var sendRoomInfoRequest = function() {
     $.ajax({
-      url: "http://scrawler.azurewebsites.net/chat/getroominformation?id="+ServerRequestModule.getRoomId(incomingUrl),
+      url: "http://scrawler.azurewebsites.net/chat/getroominformation?id="+ServerRequest.getRoomId(incomingUrl),
       type: "GET",
-      success: ServerRequestModule.getRoomInfo,
+      success: ServerRequest.getRoomInfo,
       failure: function() {
         console.log("ajax failure");
       }
