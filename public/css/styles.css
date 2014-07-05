@@ -5,7 +5,7 @@ html {
 body {
 	font-size: 24px;
 	padding-top: 0px;
-	background-color: #151515;
+	background-color: #494949;
 	color: white;
 	height: 100%;
 }
@@ -17,14 +17,14 @@ body {
 
 .main {
 	min-height: 100%;
-	padding-bottom: 56px;
+	padding-bottom: 47px;
 }
 
 #message {
 	width: 600px;
 	height: 45px;
 	position: relative;
-	top: 0px;
+	top: 1px;
 	border-radius: 5px;
 	padding-left: 5px;
 	color: black;
@@ -80,10 +80,15 @@ body {
 #send-message:hover {
 	background-color: #631E08;
 	border-color: #631E08;
-};
+}
+
+.immortalMessageList {
+	margin-bottom: 5px;
+}
 
 .immortalMessageList li {
 	list-style: none;
+	text-align: center;
 }
 
 .footer {
@@ -102,6 +107,14 @@ body {
 .top {
 	background-color: #494949;
 	border-bottom: 1px solid black;
+}
+
+.different {
+	background-color: #3A3A3A;
+}
+
+footer {
+	padding: 5px 5px;
 }
 
 
