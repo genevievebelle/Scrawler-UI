@@ -1,45 +1,41 @@
-var Session = {
-	initialSet: function(){
-	var time = Date.now();
-	var thisSession = localStorage.getItem("EntryTime");
-    if(thisSession === null)
-	    {
-	      localStorage.setItem("EntryTime", time)
-	    }
-	},
+var Session = (function() {
+	var initialSet = function() {
+		var thisSession = localStorage.getItem("EntryTime");
+    if(thisSession === null){
+	      localStorage.setItem("EntryTime", Date.now());
+	  };
+	};
 
-	reset: function(){
+	var reset = function() {
 		localStorage.setItem("EntryTime", Date.now());
-	},
+	};
 
-	checkTime: function(){
-	var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 600000; //600,000ms = 10mins, 60,000ms = 1min.
-	var time = parseInt(Date.now());
+	var checkTime = function() {
+		var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 600000; // 10 minutes
 
-	if( time>sessionEnd)
-		{
-			console.log(time - sessionEnd); //If positive, should return true.
-			return true;
+		if (parseInt(Date.now()) < sessionEnd) {
+			console.log("Time remaining:", (sessionEnd - parseInt(Date.now())));
+		} else {
+			return false;
 		}
-		else console.log("Time remaining:", sessionEnd - time);
-	},
+	};
 
-	expireSession: function(){
-		var bool = this.checkTime();
-		if (bool == true){
-			console.log();
-			alert("Times up! Scan your toilet token again to refresh the session.");
-			this.clearChat();
-			return;
-		}
-		else {
-			console.log("wait for it...");
-		}
-	},
+	var expireSession = function() {
+		if (checkTime() == true) {
+			alert("Times up! Scan QR code again to refresh the session.");
+			clearChat();
+		};
+	};
 
-	clearChat: function(){
+	var clearChat = function(){
 		$(".messagesDiv").empty();
-		$("#form").empty();	//need to test that this kicks them out adequately. Could redi
+		$("#form").empty();	// Could redirect instead
+	};
+
+	return {
+		expireSession: expireSession,
+		initialSet: initialSet,
+		reset: reset
 	}
-};
+})();
 

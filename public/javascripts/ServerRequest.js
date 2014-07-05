@@ -22,6 +22,7 @@ var ServerRequest = (function(){
       }
     });
   };
+
   return {
     sendRoomInfoRequest: sendRoomInfoRequest,
     getRoomId: getRoomId,

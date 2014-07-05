@@ -3,12 +3,11 @@ var ImmortalMessage = (function(immortalData){
   var buildImmortalMessage = function(immortalData) {
     for(i = 0; i < immortalData.length; i++){
       var content = immortalData[i].Content;
-      var id = immortalData[i].Id;
       var date = moment(immortalData[i].Time).format("MMMM Do YYYY");
-      ChatView.appendImmortalList(content, id, date);
-      }
+      ChatView.appendImmortalList(content, immortalData[i].Id, date);
+    };
   };
-  
+
   return {
     buildImmortalMessage: buildImmortalMessage
   };
