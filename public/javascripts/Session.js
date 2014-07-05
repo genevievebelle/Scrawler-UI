@@ -13,7 +13,7 @@ var Session = {
 	},
 
 	checkTime: function(){
-	var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 60000; //600,000ms = 10mins, 60,000ms = 1min.
+	var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 600000; //600,000ms = 10mins, 60,000ms = 1min.
 	var time = parseInt(Date.now());
 
 	if( time>sessionEnd)
@@ -39,6 +39,6 @@ var Session = {
 
 	clearChat: function(){
 		$(".messagesDiv").empty();
-		$("#form").empty();	//need to test that this kicks them out adequately.
+		$("#form").empty();	//need to test that this kicks them out adequately. Could redi
 	}
 };

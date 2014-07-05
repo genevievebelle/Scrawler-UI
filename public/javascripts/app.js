@@ -7,6 +7,7 @@ $(document).ready(function() {
   var getRoomId = function(data) {
     FirebaseModule.createFireBase(data.FireBaseRoomId);
     FirebaseModule.bindFirebaseActions();
+    console.log("Is this being hit?")
   };
 
   var sendRoomInfoRequest = function() {
