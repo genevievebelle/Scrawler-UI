@@ -42,3 +42,4 @@ var Session = {
 		$("#form").empty();	//need to test that this kicks them out adequately. Could redi
 	}
 };
+
