@@ -7,8 +7,11 @@ var EventHandler = (function() {
   };
 
   var upVote = function() {
+    jQueryObject = $(this);
+    if (jQueryObject.hasClass("red")) {
+      return;
+    }
 		var incomingUrl = window.location.search;
-		jQueryObject = $(this);
 		var msg = {
 			Content: $(this).parent().text(),
 			HiddenUrl: incomingUrl.split('=')[1]
