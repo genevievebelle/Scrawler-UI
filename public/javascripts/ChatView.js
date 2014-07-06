@@ -29,9 +29,15 @@ var ChatView = (function() {
     setTimeout(rotateImmortal, 3000);
   };
 
+  var appendRoomName = function(name) {
+    console.log(name);
+    $(".room-name").text(name);
+  }
+
   return {
     appendMessageDiv: appendMessageDiv,
     appendImmortalList: appendImmortalList,
-    rotateImmortal: rotateImmortal
+    rotateImmortal: rotateImmortal,
+    appendRoomName: appendRoomName
   };
 })();
