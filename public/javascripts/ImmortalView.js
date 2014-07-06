@@ -1,16 +1,5 @@
-var ChatView = (function() {
-  var current = 1;
-  var appendMessageDiv = function(text) {
-    // If message is empty, do not complete rest of method
-    if(text == ""){
-      return;
-    }
-
-    $('<li/>').html("<span class='glyphicon glyphicon-thumbs-up upvote orange'></span> " + text).appendTo(ChatWindow.chatLog);
-    window.scrollTo(0,document.body.scrollHeight);
-  };
-
-  var appendImmortalList = function(messageContent, messageId, Timestamp) {
+var ImmortalView = (function() {
+var appendImmortalList = function(messageContent, messageId, Timestamp) {
     $('<li/>').html(messageContent+'</br><span class="time">'+ Timestamp + '</span><span class="location">near Cuba Street</span>').appendTo(ChatWindow.immortalMessageList);
     ChatWindow.immortalMessageList.children().last()[0].classList.add(messageId);
   };
@@ -26,12 +15,10 @@ var ChatView = (function() {
       }
       $('.immortalMessageList li').eq(current).fadeIn(500);
     });
-    setTimeout(rotateImmortal, 8000);
+    setTimeout(rotateImmortal, 10000);
   };
-
   return {
-    appendMessageDiv: appendMessageDiv,
     appendImmortalList: appendImmortalList,
     rotateImmortal: rotateImmortal
-  };
+  }
 })();
