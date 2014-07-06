@@ -35,36 +35,17 @@
     <!-- End Top Bar -->
 
     <!-- Main Message Content -->
-    <div class="main">
-      <div class="nopadding">
-        <div>
-          <ul class="messagesDiv">
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="draw" style="display: none">
+    <div class="draw">
       <div class="draw-container">
         <canvas style="background-color: white" id="drawing-canvas" width="1000" height="850"></canvas>
       </div>
-      
+      <div style="background-color: white" id="colorholder"></div>
     </div>
+    
     <!-- End Message Content -->
 
     <!-- Footer/ Send Bar -->
-    <div class="footer navbar-fixed-bottom dark">
-      <div id="form">
-        <input type="submit" class="btn btn-primary btn-lg draw-btn" value="draw"/>
-        <form id="input">
-          
-          <input type="textarea" id="message" />
-          <input type="submit" class="btn btn-primary btn-lg" id="send-message" value="send" />
-        </form>
 
-      </div>
-      <div style="display: none" id="colorholder"></div>
-    </div>
     <!-- End Footer -->
 
   </body>
@@ -72,15 +53,5 @@
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
   <script src= "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
-  <script src="javascripts/FirebaseModule.js"></script>
-  <script src="javascripts/Session.js"></script>
-  <script src="javascripts/ImmortalMessage.js"></script>
-  <script src="javascripts/EventHandler.js"></script>
-  <script src="javascripts/ServerRequest.js"></script>
-  <script src="javascripts/ChatWindow.js"></script>
-  <script src="javascripts/ChatView.js"></script>
   <script src="javascripts/Draw.js"></script>
-  <script src="javascripts/Drawing.js"></script>
-  <script src="javascripts/Errors.js"></script>
-  <script src="javascripts/app.js"></script>
 </html>
