@@ -1,4 +1,5 @@
 var ChatView = (function() {
+  var current = 1;
   var appendMessageDiv = function(text) {
     // If message is empty, do not complete rest of method
     if(text == ""){
@@ -14,8 +15,23 @@ var ChatView = (function() {
     ChatWindow.immortalMessageList.children().last()[0].classList.add(messageId);
   };
 
+  var rotateImmortal = function() {
+    var length = $('.immortalMessageList li').length;
+
+    $('.immortalMessageList li').eq(current).fadeOut(500, function(){
+      current++;
+      console.log(current);
+      if(current === length){
+        current =  0;
+      }
+      $('.immortalMessageList li').eq(current).fadeIn(500);
+    });
+    setTimeout(rotateImmortal, 3000);
+  };
+
   return {
     appendMessageDiv: appendMessageDiv,
-    appendImmortalList: appendImmortalList
+    appendImmortalList: appendImmortalList,
+    rotateImmortal: rotateImmortal
   };
 })();
