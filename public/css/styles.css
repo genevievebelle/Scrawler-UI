@@ -48,6 +48,11 @@ body {
 .immortalMessageList li {
 	list-style: none;
 	text-align: center;
+	font-size: 20px;
+	padding: 20px;
+	background-color: #34333D;
+	border-radius: 15px
+
 }
 
 /* -------------- Main Message Segment -------------- */
