@@ -1,3 +1,5 @@
+/* -------------- Document Styles -------------- */
+
 html {
 	height: 100%;
 }
@@ -10,8 +12,47 @@ body {
 	height: 100%;
 }
 
+.nopadding {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.orange {
+	color: #C63D0F;
+}
+
+.dark {
+	background-color: #222326;
+}
+
+.red {
+	color: red;
+	font-size: 20px;
+}
+
+/* -------------- Top Segment -------------- */
+
+.top {
+	border-bottom: 2px groove darkgrey;
+	font-size: 16px;
+}
+
+.immortal {
+	padding: 5px 0 0 0;
+}
+
+.immortalMessageList {
+	margin-bottom: 5px;
+}
+
+.immortalMessageList li {
+	list-style: none;
+	text-align: center;
+}
+
+/* -------------- Main Message Segment -------------- */
+
 .container {
-	background-color: #494949;
 	padding: 10px 0px;
 }
 
@@ -19,6 +60,31 @@ body {
 	min-height: 100%;
 	padding-bottom: 86px;
 }
+
+.messagesDiv {
+	padding-left: 0px;
+}
+
+.upvote {
+	margin-right: 10px;
+	font-size: 15px;
+	font-weight: 900;
+}
+
+.messagesDiv li {
+	list-style: none;
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-family: 'Open Sans', sans-serif;
+	border-bottom: 1px solid #222326;
+}
+
+.messagesDiv li:nth-child(odd) {
+	background-color: #121314;
+}
+
+/* -------------- Bottom Segment -------------- */
 
 #message {
 	width: 600px;
@@ -32,52 +98,8 @@ body {
 	font-size: 30px;
 }
 
-.messagesDiv {
-	padding-left: 0px;
-}
-
-.upvote {
-	margin-right: 10px;
-	font-size: 15px;
-	font-weight: 900;
-}
-
-.orange {
-	color: #C63D0F;
-}
-
-.red {
-	color: red;
-	font-size: 20px;
-}
-
-.messagesDiv li {
-	list-style: none;
-	padding-left: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	font-family: 'Open Sans', sans-serif;
-}
-
-.messagesDiv li:nth-child(odd) {
-	background-color: #121314;
-}
-
-.messagesDiv li {
-	border-bottom: 1px solid #222326;
-}
-
-.nopadding {
-	padding-left: 0px;
-	padding-right: 0px;
-}
-
 #input {
 	margin-left: 10px;
-}
-
-.immortal {
-	padding: 5px 0 0 0;
 }
 
 #send-message {
@@ -92,18 +114,8 @@ body {
 	border-color: #631E08;
 }
 
-.immortalMessageList {
-	margin-bottom: 5px;
-}
-
-.immortalMessageList li {
-	list-style: none;
-	text-align: center;
-}
-
 .footer {
 	min-width: 100%;
-	background-color: #494949;
 	border-top: 2px groove darkgrey;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -112,18 +124,6 @@ body {
 #form {
 	width: 800px;
 	margin: 0 auto;
-}
-
-
-
-.top {
-	background-color: #494949;
-	border-bottom: 2px groove darkgrey;
-	font-size: 16px;
-}
-
-.different {
-	background-color: #222326;
 }
 
 .footer {
