@@ -10,7 +10,7 @@ var ChatView = (function() {
   };
 
   var appendImmortalList = function(messageContent, messageId, Timestamp) {
-    $('<li/>').html('<span class="time">'+ Timestamp + '</span>: ' + messageContent).appendTo(ChatWindow.immortalMessageList);
+    $('<li/>').html(messageContent+'</br><span class="time">'+ Timestamp + '</span><span class="location">near Cuba Street</span>').appendTo(ChatWindow.immortalMessageList);
     ChatWindow.immortalMessageList.children().last()[0].classList.add(messageId);
   };
 
