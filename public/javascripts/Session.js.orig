@@ -27,7 +27,11 @@ var Session = (function() {
 
 	var clearChat = function(){
 		$(".messagesDiv").empty();
+<<<<<<< HEAD
 		$("#form").empty();
+=======
+		$("#form").empty();	
+>>>>>>> 18671b31a093b3dabcb2089da1c8eb5dc684845b
 	};
 
 	return {

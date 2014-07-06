@@ -45,11 +45,30 @@ body {
 	margin-bottom: 5px;
 }
 
+
 .immortalMessageList li {
 	list-style: none;
 	text-align: center;
+	font-size: 25px;
+	padding: 20px 5px 30px 5px;
+	background-color: #34333D;
+	border-radius: 15px
+
 }
 
+.immortalMessageList span {
+	font-size: 18px;
+	color: #8C99A6;
+	margin: 0 10px 0px 10px;
+}
+
+.immortalMessageList li .time {
+	float: left;
+}
+
+.immortalMessageList li .location {
+	float: right;
+}
 /* -------------- Main Message Segment -------------- */
 
 .container {
