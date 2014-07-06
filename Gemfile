@@ -1,4 +1,3 @@
 source :rubygems
 gem 'rack'
-gem 'jasmine'
-gem 'jasmine-jquery-rails'
+gem 'jasmine', group: [:development, :test]
