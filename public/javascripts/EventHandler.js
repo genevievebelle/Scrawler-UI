@@ -2,8 +2,8 @@ var EventHandler = (function() {
   var jQueryObject;
 
   var bindClickEvents = function() {
-    $(ChatWindow.chatLog).on('click', ".upvote", upVote);
-    ChatWindow.sendButton.on('click', FirebaseModule.sendMessageClickEvent);
+    $(WindowView.chatLog).on('click', ".upvote", upVote);
+    WindowView.sendButton.on('click', FirebaseModule.sendMessageClickEvent);
   };
 
   var upVote = function() {
