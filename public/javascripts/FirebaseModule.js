@@ -15,6 +15,7 @@ var FirebaseModule = (function(){
     var text = ChatWindow.messageInput.val();
     fb.push({text: text});
     ChatWindow.messageInput.val('');
+    Trollguard.incrementCounter();
   };
 
   var snapshotFunction = function(snapshot) {
