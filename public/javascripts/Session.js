@@ -1,9 +1,7 @@
 var Session = (function() {
 	var initialSet = function() {
-		var thisSession = localStorage.getItem("EntryTime");
-    if(thisSession === null){
-	      localStorage.setItem("EntryTime", Date.now());
-	  };
+		localStorage.setItem("EntryTime", Date.now());
+		setInterval("Session.expireSession()", 10000);
 	};
 
 	var reset = function() {
@@ -16,7 +14,7 @@ var Session = (function() {
 		if (parseInt(Date.now()) < sessionEnd) {
 			console.log("Time remaining:", (sessionEnd - parseInt(Date.now())));
 		} else {
-			return false;
+			return true;
 		}
 	};
 
@@ -29,13 +27,12 @@ var Session = (function() {
 
 	var clearChat = function(){
 		$(".messagesDiv").empty();
-		$("#form").empty();	// Could redirect instead
+		$("#form").empty();
 	};
 
 	return {
-		expireSession: expireSession,
 		initialSet: initialSet,
-		reset: reset
+		expireSession: expireSession
 	}
 })();
 
