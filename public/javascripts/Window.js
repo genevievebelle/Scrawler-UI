@@ -1,6 +1,6 @@
-var ChatWindow = {
+var Window = {
   messageInput: $("#message"),
   chatLog: $(".messagesDiv"),
   sendButton: $("#send-message"),
-  immortalMessageList: $(".immortalMessageList")
+  immortalMessageList: $(".immortalMessageList"),
 };
