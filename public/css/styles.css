@@ -1,3 +1,5 @@
+/* -------------- Document Styles -------------- */
+
 html {
 	height: 100%;
 }
@@ -5,30 +7,77 @@ html {
 body {
 	font-size: 24px;
 	padding-top: 0px;
-	background-color: #494949;
+	background-color: #121314;
 	color: white;
 	height: 100%;
 }
 
+.nopadding {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.orange {
+	color: #C63D0F;
+}
+
+.dark {
+	background-color: #222326;
+}
+
+.red {
+	color: red;
+	font-size: 20px;
+}
+
+/* -------------- Top Segment -------------- */
+
+.top {
+	border-bottom: 2px groove darkgrey;
+	font-size: 16px;
+}
+
+.immortal {
+	padding: 5px 0 0 0;
+}
+
+.immortalMessageList {
+	margin-bottom: 5px;
+}
+
+
+.immortalMessageList li {
+	list-style: none;
+	text-align: center;
+	font-size: 25px;
+	padding: 20px 5px 30px 5px;
+	background-color: #34333D;
+	border-radius: 15px
+
+}
+
+.immortalMessageList span {
+	font-size: 18px;
+	color: #8C99A6;
+	margin: 0 10px 0px 10px;
+}
+
+.immortalMessageList li .time {
+	float: left;
+}
+
+.immortalMessageList li .location {
+	float: right;
+}
+/* -------------- Main Message Segment -------------- */
+
 .container {
-	background-color: #494949;
 	padding: 10px 0px;
 }
 
 .main {
 	min-height: 100%;
-	padding-bottom: 47px;
-}
-
-#message {
-	width: 600px;
-	height: 45px;
-	position: relative;
-	top: 1px;
-	border-radius: 5px;
-	padding-left: 5px;
-	color: black;
-	background-color: #B6B6B6;
+	padding-bottom: 86px;
 }
 
 .messagesDiv {
@@ -41,44 +90,42 @@ body {
 	font-weight: 900;
 }
 
-.orange {
-	color: #C63D0F;
-}
-
-.red {
-	color: red;
-	font-size: 20px;
-}
-
 .messagesDiv li {
 	list-style: none;
-	padding-left: 5px;
+	padding-left: 10px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	font-family: 'Open Sans', sans-serif;
+	border-bottom: 1px solid #222326;
 }
 
 .messagesDiv li:nth-child(odd) {
-	background-color: #3A3A3A;
+	background-color: #121314;
 }
 
-.nopadding {
-	padding-left: 0px;
-	padding-right: 0px;
+/* -------------- Bottom Segment -------------- */
+
+#message {
+	width: 500px;
+	height: 70px;
+	position: relative;
+	top: 3px;
+	border-radius: 5px;
+	padding-left: 10px;
+	color: black;
+	background-color: #DFE0E6;
+	font-size: 30px;
 }
 
 #input {
 	margin-left: 10px;
 }
 
-.immortal {
-	padding: 5px 0 0 0;
-}
-
 #send-message {
+	font-size: 30px;
 	background-color: #C63D0F;
 	border-color: #C63D0F;
-	padding: 10px 30px;
+	padding: 14px 50px;
 }
 
 #send-message:hover {
@@ -86,39 +133,32 @@ body {
 	border-color: #631E08;
 }
 
-.immortalMessageList {
-	margin-bottom: 5px;
-}
-
-.immortalMessageList li {
-	list-style: none;
-	text-align: center;
-}
-
 .footer {
 	min-width: 100%;
-	background-color: #494949;
-	border-top: 1px solid black;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	border-top: 2px groove darkgrey;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 #form {
 	width: 800px;
 	margin: 0 auto;
+
 }
 
-.top {
-	background-color: #494949;
-	border-bottom: 1px solid black;
+.footer {
+	padding: 10px 5px;
 }
 
-.different {
-	background-color: #3A3A3A;
-}
-
-footer {
-	padding: 5px 5px;
+.draw-btn {
+	font-size: 25px;
+	padding: 10px 0px;
+	width: 100px;
+	height: 70px;
+	float: left;
+	margin-right: 10px;
+	position: relative;
+	top: 3px;
 }
 
 
