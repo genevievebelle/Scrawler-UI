@@ -19,7 +19,7 @@ var FirebaseModule = (function(){
       Window.messageInput.val('');
     } else {
       Trollguard.fadeSend();
-      alert("Spam")
+      ChatView.appendSystemMessage("Messaging disabled for 5 seconds");
     };
   };
 

@@ -21,8 +21,8 @@ var Session = (function() {
 
 	var expireSession = function() {
 		if (checkTime() == true) {
-			alert("Times up! Scan QR code again to refresh the session.");
 			clearChat();
+			ChatView.appendSystemMessage("Times up! Scan QR code again to refresh the session.");
 		};
 	};
 
