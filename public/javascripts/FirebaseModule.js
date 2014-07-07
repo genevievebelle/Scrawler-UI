@@ -12,9 +12,9 @@ var FirebaseModule = (function(){
 
   var sendMessageClickEvent = function(event) {
     event.preventDefault();
-    var text = WindowView.messageInput.val();
+    var text = Window.messageInput.val();
     fb.push({text: text});
-    WindowView.messageInput.val('');
+    Window.messageInput.val('');
   };
 
   var snapshotFunction = function(snapshot) {

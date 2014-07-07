@@ -1,4 +1,4 @@
-var WindowView = {
+var Window = {
   messageInput: $("#message"),
   chatLog: $(".messagesDiv"),
   sendButton: $("#send-message"),
