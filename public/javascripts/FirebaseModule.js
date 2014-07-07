@@ -12,6 +12,7 @@ var FirebaseModule = (function(){
 
   var sendMessageClickEvent = function(event) {
     event.preventDefault();
+<<<<<<< HEAD
     var check = Trollguard.checkSpammer();
     if(check==true){
       var text = ChatWindow.messageInput.val();
@@ -21,6 +22,12 @@ var FirebaseModule = (function(){
       Trollguard.fadeSend();
       alert("Spam")
     };
+=======
+    var text = ChatWindow.messageInput.val();
+    fb.push({text: text});
+    ChatWindow.messageInput.val('');
+    Trollguard.incrementCounter();
+>>>>>>> 2ff6ea43a2632013f3010db033e2e603ef3af663
   };
 
   var snapshotFunction = function(snapshot) {
