@@ -11,8 +11,13 @@ var ChatView = (function() {
   };
 
   var appendImmortalList = function(messageContent, messageId, Timestamp) {
-    $('<li/>').html(messageContent+'</br><span class="time">'+ Timestamp + '</span><span class="location">near Cuba Street</span>').appendTo(ChatWindow.immortalMessageList);
-    ChatWindow.immortalMessageList.children().last()[0].classList.add(messageId);
+    var html = messageContent+'</br><span class="time">'+Timestamp+'</span><span class="location">near Cuba Street</span>';
+    var domElement = ChatWindow.immortalMessageList;
+    var lastInList = domElement.children().last()[0];
+
+    $('<li/>').html(html).appendTo(domElement);
+
+    lastInList.classList.add(messageId);
   };
 
   var rotateImmortal = function() {
