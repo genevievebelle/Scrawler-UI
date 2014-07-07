@@ -1,13 +1,18 @@
 var ChatView = (function() {
-  var appendMessageDiv = function(text) {
+  var appendMessageDiv = function(text, username, id) {
+    var message = new chatMessage(text, username, id)
     // If message is empty, do not complete rest of method
-    if(text == ""){
+    if(message.Content == ""){
       return;
     }
-
-    $('<li/>').html("<span class='glyphicon glyphicon-thumbs-up upvote orange'></span> " + text).appendTo(Window.chatLog);
+    message.constructHtml().appendTo(Window.chatLog);
     window.scrollTo(0,document.body.scrollHeight);
   };
+
+  var appendSystemMessage = function(text) {
+    $('<li/>').html(text).appendTo(Window.chatLog).css('color', 'red');
+    window.scrollTo(0,document.body.scrollHeight);
+  }
 
   var appendRoomName = function(name) {
     $(".room-name").text(name);
@@ -15,6 +20,7 @@ var ChatView = (function() {
 
   return {
     appendMessageDiv: appendMessageDiv,
+    appendSystemMessage: appendSystemMessage,
     appendRoomName: appendRoomName
   };
 })();

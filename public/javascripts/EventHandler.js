@@ -14,9 +14,12 @@ var EventHandler = (function() {
     }
 		var incomingUrl = window.location.search;
 		var msg = {
-			Content: $(this).parent().text(),
-			HiddenUrl: incomingUrl.split('=')[1]
-    };
+      Name: jQueryObject.parent().find('.username').text(),
+			Content: jQueryObject.parent().find(".content").text(),
+			FirebaseId : FirebaseModule.getRoom(),
+      MessageId: jQueryObject.attr("data-id"),
+    }
+    console.log(msg);
     upVoteAjaxRequest(msg);
   };
 
