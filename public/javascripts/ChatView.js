@@ -16,7 +16,7 @@ var ChatView = (function() {
 
   var appendRoomName = function(name) {
     $(".room-name").text(name);
-  }
+  };
 
   return {
     appendMessageDiv: appendMessageDiv,
