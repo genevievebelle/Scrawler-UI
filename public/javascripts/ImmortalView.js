@@ -1,25 +1,37 @@
 var ImmortalView = (function() {
   var currentItem = 0;
-  var appendImmortalList = function(messageContent, messageId, Timestamp) {
-    $('<li/>').html(messageContent+'</br><span class="time">'+ Timestamp + '</span><span class="location">near Cuba Street</span>').appendTo(Window.immortalMessageList);
-    Window.immortalMessageList.children().last()[0].classList.add(messageId);
+  var itemList = Window.immortalMessageList;
+
+  var appendImmortalList = function(immortalListItemView) {
+    $(immortalListItemView.html).appendTo(itemList);
   };
 
-  var rotateImmortal = function() {
-    var itemList = Window.immortalMessageList.children();
-    var totalItems = $(itemList).length;
-    itemList.eq(currentItem).fadeOut(500, function(){
-      currentItem++;
-      if(currentItem === totalItems){
-        currentItem =  0;
-      }
-      itemList.eq(currentItem).fadeIn(500);
-    });
-    setTimeout(rotateImmortal, 3000);
+  var hideImmortalListItemView = function() {
+    itemList.children().hide();
+    itemList.children().first().show();
+  };
+
+  var rotateImmortalListItemView = function() {
+    itemList.eq(currentItem).fadeOut(500, alternateCurrentItem);
+    // setTimeout(rotateImmortalListItemView, 3000);
+  };
+
+  var alternateCurrentItem = function() {
+    var totalItems = $(itemList).children().length;
+    currentItem++;
+    if(currentItem === totalItems){
+      currentItem =  0;
+    }
+    console.log(currentItem);
+    itemList.children().eq(currentItem).fadeIn(500);
+    setTimeout(ImmortalView.rotateImmortalListItemView, 3000);
   };
 
   return {
     appendImmortalList: appendImmortalList,
-    rotateImmortal: rotateImmortal
-  }
+    rotateImmortalListItemView: rotateImmortalListItemView,
+    hideImmortalListItemView: hideImmortalListItemView
+  };
 })();
+
+

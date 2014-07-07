@@ -10,6 +10,8 @@ var ServerRequest = (function(){
     ImmortalMessage.buildImmortalMessage(data.Messages);
     FirebaseModule.createFireBase(data.FireBaseRoomId);
     FirebaseModule.bindFirebaseActions();
+    ImmortalView.hideImmortalListItemView();
+    setTimeout(ImmortalView.rotateImmortalListItemView, 5000);
   };
 
   var sendRoomInfoRequest = function() {
