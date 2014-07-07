@@ -1,11 +1,11 @@
 var ChatView = (function() {
   var appendMessageDiv = function(text, username, id) {
+    var message = new chatMessage(text, username, id)
     // If message is empty, do not complete rest of method
-    if(text == ""){
+    if(message.Content == ""){
       return;
     }
-    $('<li/>').html("<span class='glyphicon glyphicon-thumbs-up upvote orange' data-id='" + id + "'></span><span class='username'>" + username + "</span>: <span class='content'>" + text + "</span>").appendTo(Window.chatLog);
-
+    message.constructHtml().appendTo(Window.chatLog);
     window.scrollTo(0,document.body.scrollHeight);
   };
 
