@@ -1,5 +1,27 @@
+var ImmortalListItem = function(args) {
+  this.content   = args.content;
+  this.messageId = args.messageId;
+  this.timeStamp = args.timeStamp;
+  this.place = args.place;
+};
+
+var ImmortalListItemView = function(immortalListItem) {
+  this.parrentWrapper  = 'li';
+  this.childrenWrapper = 'span';
+  this.html = '';
+  this.buildHtml();
+};
+
+ImortalListItemView.prototype = {
+  buildHtml: function() {
+    //Build html string by hand or using jQuery
+    //this.html = $(this.parrentWrapper).html(...);
+  }
+};
+
 var ChatView = (function() {
   var current = 1;
+
   var appendMessageDiv = function(text) {
     // If message is empty, do not complete rest of method
     if(text == ""){
@@ -10,7 +32,12 @@ var ChatView = (function() {
     window.scrollTo(0,document.body.scrollHeight);
   };
 
-  var appendImmortalList = function(messageContent, messageId, Timestamp) {
+  var appendImmortalList = function(immortalListItemView) {
+    var domElement = ChatWindow.immortalMessageList;
+    $(immortalListItemView.html).appendTo(domElement);
+  };
+
+  var appendImmortalList = function(immortalListItemView) {
     var html = messageContent+'</br><span class="time">'+Timestamp+'</span><span class="location">near Cuba Street</span>';
     var domElement = ChatWindow.immortalMessageList;
     var lastInList = domElement.children().last()[0];
