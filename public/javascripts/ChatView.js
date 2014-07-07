@@ -15,8 +15,6 @@ var ChatView = (function() {
 
   return {
     appendMessageDiv: appendMessageDiv,
-    appendImmortalList: appendImmortalList,
-    rotateImmortal: rotateImmortal,
     appendRoomName: appendRoomName
   };
 })();
