@@ -3,28 +3,28 @@ var ImmortalView = (function() {
   var itemList = Window.immortalMessageList;
 
   var appendImmortalList = function(immortalListItemView) {
-    $(immortalListItemView.html).appendTo(itemList);
+    itemList.append(immortalListItemView.html);
   };
 
   var hideImmortalListItemView = function() {
     itemList.children().hide();
     itemList.children().first().show();
+    setTimeout(rotateImmortalListItemView, 4000);
   };
 
   var rotateImmortalListItemView = function() {
-    itemList.eq(currentItem).fadeOut(500, alternateCurrentItem);
-    // setTimeout(rotateImmortalListItemView, 3000);
+    itemList.children().eq(currentItem).fadeOut(1000, alternateCurrentItem);
+    setTimeout(rotateImmortalListItemView, 4000);
   };
 
   var alternateCurrentItem = function() {
-    var totalItems = $(itemList).children().length;
+    var totalItems = itemList.children().length;
     currentItem++;
+    console.log("currentitem", currentItem);
     if(currentItem === totalItems){
       currentItem =  0;
     }
-    console.log(currentItem);
-    itemList.children().eq(currentItem).fadeIn(500);
-    setTimeout(ImmortalView.rotateImmortalListItemView, 3000);
+    itemList.children().eq(currentItem).fadeIn();
   };
 
   return {

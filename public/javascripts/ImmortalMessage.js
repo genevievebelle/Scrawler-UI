@@ -5,6 +5,7 @@ var ImmortalMessage = (function(immortalData){
       var immortalListItemView = new ImmortalListItemView(immortalListItem);
       ImmortalView.appendImmortalList(immortalListItemView);
     };
+  ImmortalView.hideImmortalListItemView();
   };
 
   return {
