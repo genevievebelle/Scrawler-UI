@@ -1,0 +1,31 @@
+#colorholder {
+	width: 1000px;
+  height: 90px;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#drawing-canvas {
+  border: 3px solid #999;
+  background-color: white;
+
+}
+
+.draw-container {
+	  margin: 0 auto;
+	  overflow: hidden;
+	  width: 1000px; 
+	  height: 850px;
+	  margin-top: 10px;
+	  overflow: hidden;
+	  padding-top: 100px;
+}
+
+.colorbox {
+  width: 60px;
+  height: 66px;
+  margin: 1px;
+  display: inline-block;
+  border: 3px solid black;
+}

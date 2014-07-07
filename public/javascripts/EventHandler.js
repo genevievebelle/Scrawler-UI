@@ -2,8 +2,9 @@ var EventHandler = (function() {
   var jQueryObject;
 
   var bindClickEvents = function() {
-    $(ChatWindow.chatLog).on('click', ".upvote", upVote);
-    ChatWindow.sendButton.on('click', FirebaseModule.sendMessageClickEvent);
+    $(Window.chatLog).on('click', ".upvote", upVote);
+    Window.sendButton.on('click', FirebaseModule.sendMessageClickEvent);
+    $(".draw-btn").on('click', Drawing.changeTab);
   };
 
   var upVote = function() {
@@ -12,9 +13,11 @@ var EventHandler = (function() {
       return;
     }
 		var incomingUrl = window.location.search;
-		var msg = {
-			Content: $(this).parent().text(),
-			HiddenUrl: incomingUrl.split('=')[1]
+    var messageContent = $(this).parent().text().split(':');
+    var msg = {
+        Username: messageContent[0],
+        Content: messageContent[1].trim(),
+        HiddenUrl: incomingUrl.split('=')[1]
     };
     upVoteAjaxRequest(msg);
   };

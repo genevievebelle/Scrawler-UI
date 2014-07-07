@@ -1,6 +1,7 @@
 var Session = (function() {
 	var initialSet = function() {
 		localStorage.setItem("EntryTime", Date.now());
+		localStorage.setItem("Username", Faker.Name.findName());
 		setInterval("Session.expireSession()", 10000);
 	};
 
@@ -20,8 +21,8 @@ var Session = (function() {
 
 	var expireSession = function() {
 		if (checkTime() == true) {
-			alert("Times up! Scan QR code again to refresh the session.");
 			clearChat();
+			ChatView.appendSystemMessage("Times up! Scan QR code again to refresh the session.");
 		};
 	};
 
