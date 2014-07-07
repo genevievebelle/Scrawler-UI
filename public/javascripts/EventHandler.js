@@ -4,6 +4,7 @@ var EventHandler = (function() {
   var bindClickEvents = function() {
     $(Window.chatLog).on('click', ".upvote", upVote);
     Window.sendButton.on('click', FirebaseModule.sendMessageClickEvent);
+    $(".draw-btn").on('click', Drawing.changeTab);
   };
 
   var upVote = function() {
