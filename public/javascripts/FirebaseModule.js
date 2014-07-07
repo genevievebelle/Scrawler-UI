@@ -14,7 +14,8 @@ var FirebaseModule = (function(){
     event.preventDefault();
     var text = Window.messageInput.val();
     fb.push({text: text});
-    Window.messageInput.val('');
+    ChatWindow.messageInput.val('');
+    Trollguard.incrementCounter();
   };
 
   var snapshotFunction = function(snapshot) {
