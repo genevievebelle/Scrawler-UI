@@ -12,14 +12,20 @@ var FirebaseModule = (function(){
 
   var sendMessageClickEvent = function(event) {
     event.preventDefault();
-    var text = ChatWindow.messageInput.val();
-    fb.push({text: text});
-    ChatWindow.messageInput.val('');
+    var check = Trollguard.checkSpammer();
+    if(check==true){
+      var text = Window.messageInput.val();
+      fb.push({text: text, username: localStorage.getItem("Username")});
+      Window.messageInput.val('');
+    } else {
+      Trollguard.fadeSend();
+      ChatView.appendSystemMessage("Messaging disabled for 5 seconds");
+    };
   };
 
   var snapshotFunction = function(snapshot) {
     var message = snapshot.val();
-    ChatView.appendMessageDiv(message.text);
+    ChatView.appendMessageDiv(message.text, message.username);
   };
 
   return {
