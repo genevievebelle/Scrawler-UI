@@ -15,7 +15,7 @@ var FirebaseModule = (function(){
     var check = Trollguard.checkSpammer();
     if(check==true){
       var text = Window.messageInput.val();
-      fb.push({text: text});
+      fb.push({text: text, username: localStorage.getItem("Username")});
       Window.messageInput.val('');
     } else {
       Trollguard.fadeSend();
@@ -25,7 +25,7 @@ var FirebaseModule = (function(){
 
   var snapshotFunction = function(snapshot) {
     var message = snapshot.val();
-    ChatView.appendMessageDiv(message.text);
+    ChatView.appendMessageDiv(message.text, message.username);
   };
 
   return {
