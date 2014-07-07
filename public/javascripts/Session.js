@@ -1,6 +1,7 @@
 var Session = (function() {
 	var initialSet = function() {
 		localStorage.setItem("EntryTime", Date.now());
+		localStorage.setItem("Username", Faker.Name.findName());
 		setInterval("Session.expireSession()", 10000);
 	};
 
