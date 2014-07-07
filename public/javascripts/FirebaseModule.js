@@ -1,9 +1,16 @@
 var FirebaseModule = (function(){
   var fb;
+  var room;
 
   var createFireBase = function(roomKey) {
+    room = roomKey;
+    console.log(room);
     fb = new Firebase("https://intense-fire-3380.firebaseio.com/" + roomKey);
   };
+
+  var getRoom = function(){
+    return room;
+  }
 
   var bindFirebaseActions = function() {
     var query = fb.limit(200);
@@ -25,7 +32,7 @@ var FirebaseModule = (function(){
 
   var snapshotFunction = function(snapshot) {
     var message = snapshot.val();
-    ChatView.appendMessageDiv(message.text);
+    ChatView.appendMessageDiv(message.text, snapshot.name());
   };
 
   return {
@@ -33,6 +40,8 @@ var FirebaseModule = (function(){
     sendMessageClickEvent: sendMessageClickEvent,
     snapshotFunction: snapshotFunction,
     bindFirebaseActions: bindFirebaseActions,
-    createFireBase: createFireBase
+    createFireBase: createFireBase,
+    room: room,
+    getRoom: getRoom
   };
 })();

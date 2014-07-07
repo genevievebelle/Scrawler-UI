@@ -13,10 +13,14 @@ var EventHandler = (function() {
       return;
     }
 		var incomingUrl = window.location.search;
+    console.log(jQueryObject);
 		var msg = {
-			Content: $(this).parent().text(),
-			HiddenUrl: incomingUrl.split('=')[1]
+      Name: jQueryObject.parent().find('.name').text(),
+			Content: jQueryObject.parent().text(),
+			FirebaseId : FirebaseModule.getRoom(),
+      MessageId: jQueryObject.attr("data-id"),
     };
+    console.log(msg);
     upVoteAjaxRequest(msg);
   };
 
