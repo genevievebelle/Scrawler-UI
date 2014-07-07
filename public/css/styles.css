@@ -45,11 +45,30 @@ body {
 	margin-bottom: 5px;
 }
 
+
 .immortalMessageList li {
 	list-style: none;
 	text-align: center;
+	font-size: 25px;
+	padding: 20px 5px 30px 5px;
+	background-color: #34333D;
+	border-radius: 15px
+
 }
 
+.immortalMessageList span {
+	font-size: 18px;
+	color: #8C99A6;
+	margin: 0 10px 0px 10px;
+}
+
+.immortalMessageList li .time {
+	float: left;
+}
+
+.immortalMessageList li .location {
+	float: right;
+}
 /* -------------- Main Message Segment -------------- */
 
 .container {
@@ -87,7 +106,7 @@ body {
 /* -------------- Bottom Segment -------------- */
 
 #message {
-	width: 600px;
+	width: 500px;
 	height: 70px;
 	position: relative;
 	top: 3px;
@@ -124,10 +143,22 @@ body {
 #form {
 	width: 800px;
 	margin: 0 auto;
+
 }
 
 .footer {
 	padding: 10px 5px;
+}
+
+.draw-btn {
+	font-size: 25px;
+	padding: 10px 0px;
+	width: 100px;
+	height: 70px;
+	float: left;
+	margin-right: 10px;
+	position: relative;
+	top: 3px;
 }
 
 

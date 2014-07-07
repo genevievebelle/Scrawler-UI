@@ -1,5 +1,7 @@
 $(document).ready(function() {
   EventHandler.bindClickEvents();
-  Session.initialSet();
   ServerRequest.sendRoomInfoRequest();
+
+  setTimeout(ChatView.rotateImmortal, 3000);
+  Session.initialSet();
 });

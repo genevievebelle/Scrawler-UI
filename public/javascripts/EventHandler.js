@@ -4,11 +4,15 @@ var EventHandler = (function() {
   var bindClickEvents = function() {
     $(ChatWindow.chatLog).on('click', ".upvote", upVote);
     ChatWindow.sendButton.on('click', FirebaseModule.sendMessageClickEvent);
+    $(".draw-btn").on('click', Drawing.changeTab);
   };
 
   var upVote = function() {
+    jQueryObject = $(this);
+    if (jQueryObject.hasClass("red")) {
+      return;
+    }
 		var incomingUrl = window.location.search;
-		jQueryObject = $(this);
 		var msg = {
 			Content: $(this).parent().text(),
 			HiddenUrl: incomingUrl.split('=')[1]

@@ -27,7 +27,7 @@ var Session = (function() {
 
 	var clearChat = function(){
 		$(".messagesDiv").empty();
-		$("#form").empty();	
+		$("#form").empty();
 	};
 
 	return {
