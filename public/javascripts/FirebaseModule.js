@@ -11,7 +11,6 @@ var FirebaseModule = (function(){
   };
 
   var sendMessageClickEvent = function(event) {
-    event.preventDefault();
     var check = Trollguard.checkSpammer();
     if(check==true){
       var text = Window.messageInput.val();
