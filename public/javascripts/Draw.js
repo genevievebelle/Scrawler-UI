@@ -63,10 +63,10 @@ var Draw = (function () {
       mouseDown = 0; lastPoint = null;
     };
 
-    // myCanvas.touchstart = function(){mouseDown = 1;};
-    // myCanvas.onmouseout = myCanvas.touchcancel = function(){
-    //   mouseDown = 0; lastPoint = null;
-    // };
+    myCanvas.touchstart = function(){mouseDown = 1;};
+    myCanvas.touchend = myCanvas.onmouseup = function() {
+       mouseDown = 0; lastPoint = null;
+    };
 
     //Draw a line from the mouse's last position to its current position
     var drawLineOnMouseMove = function(e) {
@@ -101,8 +101,13 @@ var Draw = (function () {
     };
     $(myCanvas).mousemove(drawLineOnMouseMove);
     $(myCanvas).mousedown(drawLineOnMouseMove);
-    $(myCanvas).on("touchstart", drawLineOnMouseMove);
-    $(myCanvas).on("touchmove", drawLineOnMouseMove);
+    $(myCanvas).touchmove(drawLineOnMouseMove);
+    $(myCanvas).touchstart(drawLineOnMouseMove);
+
+    $(myCanvas).touchend(function(){
+      mouseDown = 0;
+      alert("touchended");
+    });
 
 
 
