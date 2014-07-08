@@ -87,13 +87,12 @@ var Draw = (function () {
       console.log("moveeingng");
     });
 
-    $(myCanvas).touchleave = $(myCanvas).touchend = function () {
+    $(myCanvas).touchleave = $(myCanvas).touchend(function() {
     mouseDown = 0; lastPoint = null;
-    };
+    });
 
     //Draw a line from the mouse's last position to its current position
     var drawLineOnMouseMove = function(e) {
-      console.log("hello?", e);
       if (!mouseDown) return;
       e.preventDefault();
       e = e.originalEvent.changedTouches[0];  //this line is for touch events, not mouse events.
@@ -107,9 +106,6 @@ var Draw = (function () {
       console.log("normal y:", e.pageY);
       var x1 = Math.floor((e.pageX - offset.left) / pixSize - 1),
         y1 = Math.floor((e.pageY - offset.top) / pixSize - 1);
-
-      console.log(x1);
-      console.log(y1);
 
       var x0 = (lastPoint == null) ? x1 : lastPoint[0];
       var y0 = (lastPoint == null) ? y1 : lastPoint[1];
