@@ -6,7 +6,7 @@ var ServerRequest = (function(){
   };
 
   var getRoomInfo = function(data) {
-    ChatView.appendRoomName(data.ChatroomName);
+    Window.appendRoomName(data.ChatroomName);
     ImmortalMessage.buildImmortalMessage(data.Messages);
     FirebaseModule.createFireBase(data.FireBaseRoomId);
     FirebaseModule.bindFirebaseActions();

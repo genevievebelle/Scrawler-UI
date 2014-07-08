@@ -12,23 +12,16 @@ var Session = (function() {
 	var checkTime = function() {
 		var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 600000; // 10 minutes
 
-		if (parseInt(Date.now()) < sessionEnd) {
-			console.log("Time remaining:", (sessionEnd - parseInt(Date.now())));
-		} else {
+		if (parseInt(Date.now()) > sessionEnd) {
 			return true;
 		}
 	};
 
 	var expireSession = function() {
 		if (checkTime() == true) {
-			clearChat();
-			ChatView.appendSystemMessage("Times up! Scan QR code again to refresh the session.");
+			Window.clearChat();
+			Window.appendSystemMessage("Times up! Scan QR code again to refresh the session.");
 		};
-	};
-
-	var clearChat = function(){
-		$(".messagesDiv").empty();
-		$("#form").empty();
 	};
 
 	return {
