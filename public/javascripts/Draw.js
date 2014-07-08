@@ -64,17 +64,18 @@ var Draw = (function () {
     //};
 
 
-    var testfunction = function(){
-      mouseDown = 1;
-      console.log("touchhhh");
-    };
-    var movefunction = function(){
-          mouseDown = 1;
-          console.log("moveeingng");
-          console.log(mouseDown);
-        };
+    // var testfunction = function(){
+    //   mouseDown = 1;
+    //   console.log("touchhhh");
+    // };
 
+    // var movefunction = function(){
+    //       mouseDown = 1;
+    //       console.log("moveeingng");
+    //       console.log(mouseDown);
+    //     };
 
+    myCanvas.onmousedown = function () {mouseDown = 1;};
 
     $(myCanvas).touchend(function(){
       mouseDown = 0;
@@ -89,11 +90,12 @@ var Draw = (function () {
     //Draw a line from the mouse's last position to its current position
     var drawLineOnMouseMove = function(e) {
       console.log("hello?", e);
-      //if (!mouseDown) return;
+      if (!mouseDown) return;
+      e.preventDefault();
       e = e.originalEvent.changedTouches[0];  //this line is for touch events, not mouse events.
       console.log(e.type);
       console.log(mouseDown);
-      //e.preventDefault();
+
 
       // Bresenham's line algorithm. We use this to ensure smooth lines are drawn
       var offset = $('canvas').offset();
@@ -131,8 +133,9 @@ var Draw = (function () {
     //$(myCanvas).mousedown(drawLineOnMouseMove);
     $(myCanvas).touchmove(drawLineOnMouseMove);
     $(myCanvas).touchstart(drawLineOnMouseMove);
-    $(myCanvas).on("touchmove", movefunction);
-    $(myCanvas).on("touchstart", testfunction);
+    //$(myCanvas).on("touchstart", testfunction);
+    //$(myCanvas).on("touchmove", movefunction);
+
 
 
     // Add callbacks that are fired any time the pixel data changes and adjusts the canvas appropriately.
