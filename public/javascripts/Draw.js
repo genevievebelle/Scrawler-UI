@@ -33,6 +33,11 @@ var Draw = (function () {
       mouseDown = 0; lastPoint = null;
     };
 
+    myCanvas.touchstart = function(){mouseDown = 1;};
+    myCanvas.onmouseout = myCanvas.touchcancel = function(){
+      mouseDown = 0; lastPoint = null;
+    };
+
     //Draw a line from the mouse's last position to its current position
     var drawLineOnMouseMove = function(e) {
       if (!mouseDown) return;
@@ -66,6 +71,8 @@ var Draw = (function () {
     };
     $(myCanvas).mousemove(drawLineOnMouseMove);
     $(myCanvas).mousedown(drawLineOnMouseMove);
+    $(myCanvas).on({'touchstart' : drawLineOnMouseMove});
+    $(myCanvas).touchcancel(drawLineOnMouseMove);
 
     // Add callbacks that are fired any time the pixel data changes and adjusts the canvas appropriately.
     // Note that child_added events will be fired for initial pixel data as well.
