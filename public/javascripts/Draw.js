@@ -54,7 +54,7 @@ var Draw = (function () {
         ctx.lineTo(x,y);
         ctx.stroke();
       };
-      $(this).on("touchstart", start);
+      $(this).on("touchstart", drawLineOnMouseMove);
       $(this).on("touchmove", drawLineOnMouseMove);
     };
     //Keep track of if the mouse is up or down
