@@ -1,6 +1,6 @@
 var ChatView = (function() {
   var appendMessageDiv = function(text, username, id) {
-    var message = new chatMessage(text, username, id)
+    var message = new ChatMessage(text, username, id)
     // If message is empty, do not complete rest of method
     if(message.Content == ""){
       return;
