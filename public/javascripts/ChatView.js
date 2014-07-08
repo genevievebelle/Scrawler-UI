@@ -10,8 +10,6 @@ var ChatView = (function() {
   };
 
   return {
-    appendMessageDiv: appendMessageDiv,
-    appendSystemMessage: appendSystemMessage,
-    appendRoomName: appendRoomName
+    appendMessageDiv: appendMessageDiv
   };
 })();
