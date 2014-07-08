@@ -58,26 +58,53 @@ var Draw = (function () {
   //     $(this).on("touchmove", drawLineOnMouseMove);
   //   };
     //Keep track of if the mouse is up or down
-    myCanvas.onmousedown = function () {mouseDown = 1;};
-    myCanvas.onmouseout = myCanvas.onmouseup = function () {
-      mouseDown = 0; lastPoint = null;
-    };
+    //myCanvas.onmousedown = function () {mouseDown = 1;};
+    //myCanvas.onmouseout = myCanvas.onmouseup = function () {
+    //  mouseDown = 0; lastPoint = null;
+    //};
 
-    myCanvas.touchstart = function(){mouseDown = 1;};
-    myCanvas.touchend = myCanvas.onmouseup = function() {
+
+    var testfunction = function(){
+      mouseDown = 1;
+      console.log("touchhhh");
+    };
+    var movefunction = function(){
+          mouseDown = 1;
+          console.log("moveeingng");
+          console.log(mouseDown);
+        };
+
+
+
+    $(myCanvas).touchend(function(){
+      mouseDown = 0;
+      console.log("touchended");
+      console.log(mouseDown);
+    });
+
+    myCanvas.touchleave = myCanvas.touchend = function() {
        mouseDown = 0; lastPoint = null;
     };
 
     //Draw a line from the mouse's last position to its current position
     var drawLineOnMouseMove = function(e) {
-      if (!mouseDown) return;
-
-      e.preventDefault();
+      console.log("hello?", e);
+      //if (!mouseDown) return;
+      e = e.originalEvent.changedTouches[0];  //this line is for touch events, not mouse events.
+      console.log(e.type);
+      console.log(mouseDown);
+      //e.preventDefault();
 
       // Bresenham's line algorithm. We use this to ensure smooth lines are drawn
       var offset = $('canvas').offset();
+      console.log("normal x:", e.pageX);
+      console.log("normal y:", e.pageY);
       var x1 = Math.floor((e.pageX - offset.left) / pixSize - 1),
         y1 = Math.floor((e.pageY - offset.top) / pixSize - 1);
+
+      console.log(x1);
+      console.log(y1);
+
       var x0 = (lastPoint == null) ? x1 : lastPoint[0];
       var y0 = (lastPoint == null) ? y1 : lastPoint[1];
       var dx = Math.abs(x1 - x0), dy = Math.abs(y1 - y0);
@@ -98,17 +125,14 @@ var Draw = (function () {
         }
       }
       lastPoint = [x1, y1];
+      console.log('END OF METHOD');
     };
-    $(myCanvas).mousemove(drawLineOnMouseMove);
-    $(myCanvas).mousedown(drawLineOnMouseMove);
+    //$(myCanvas).mousemove(drawLineOnMouseMove);
+    //$(myCanvas).mousedown(drawLineOnMouseMove);
     $(myCanvas).touchmove(drawLineOnMouseMove);
     $(myCanvas).touchstart(drawLineOnMouseMove);
-
-    $(myCanvas).touchend(function(){
-      mouseDown = 0;
-      alert("touchended");
-    });
-
+    $(myCanvas).on("touchmove", movefunction);
+    $(myCanvas).on("touchstart", testfunction);
 
 
     // Add callbacks that are fired any time the pixel data changes and adjusts the canvas appropriately.
