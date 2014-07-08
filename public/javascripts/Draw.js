@@ -87,14 +87,8 @@ var Draw = (function () {
       console.log("moveeingng");
     });
 
-    $(myCanvas).touchend(function(){
-      mouseDown = 0;
-      console.log("touchended");
-      console.log(mouseDown);
-    });
-
-    myCanvas.touchleave = myCanvas.touchend = function() {
-       mouseDown = 0; lastPoint = null;
+    myCanvas.touchleave = myCanvas.touchend = function () {
+    mouseDown = 0; lastPoint = null;
     };
 
     //Draw a line from the mouse's last position to its current position
