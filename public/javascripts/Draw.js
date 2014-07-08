@@ -38,35 +38,35 @@ var Draw = (function () {
       item.appendTo('#colorholder');
     }
 
-  $.fn.drawTouch = function() {
-      var start = function(e) {
-            e = e.originalEvent;
-        ctx.beginPath();
-        x = e.changedTouches[0].pageX;
-        y = e.changedTouches[0].pageY-44;
-        ctx.moveTo(x,y);
-      };
-      var move = function(e) {
-        e.preventDefault();
-            e = e.originalEvent;
-        x = e.changedTouches[0].pageX;
-        y = e.changedTouches[0].pageY-44;
-        ctx.lineTo(x,y);
-        ctx.stroke();
-      };
-      $(this).on("touchstart", drawLineOnMouseMove);
-      $(this).on("touchmove", drawLineOnMouseMove);
-    };
+  // var drawTouch = function() {
+  //     var start = function(e) {
+  //           e = e.originalEvent;
+  //       ctx.beginPath();
+  //       x = e.changedTouches[0].pageX;
+  //       y = e.changedTouches[0].pageY-44;
+  //       ctx.moveTo(x,y);
+  //     };
+  //     var move = function(e) {
+  //       e.preventDefault();
+  //           e = e.originalEvent;
+  //       x = e.changedTouches[0].pageX;
+  //       y = e.changedTouches[0].pageY-44;
+  //       ctx.lineTo(x,y);
+  //       ctx.stroke();
+  //     };
+  //     $(this).on("touchstart", drawLineOnMouseMove);
+  //     $(this).on("touchmove", drawLineOnMouseMove);
+  //   };
     //Keep track of if the mouse is up or down
     myCanvas.onmousedown = function () {mouseDown = 1;};
     myCanvas.onmouseout = myCanvas.onmouseup = function () {
       mouseDown = 0; lastPoint = null;
     };
 
-    myCanvas.touchstart = function(){mouseDown = 1;};
-    myCanvas.onmouseout = myCanvas.touchcancel = function(){
-      mouseDown = 0; lastPoint = null;
-    };
+    // myCanvas.touchstart = function(){mouseDown = 1;};
+    // myCanvas.onmouseout = myCanvas.touchcancel = function(){
+    //   mouseDown = 0; lastPoint = null;
+    // };
 
     //Draw a line from the mouse's last position to its current position
     var drawLineOnMouseMove = function(e) {
@@ -101,7 +101,8 @@ var Draw = (function () {
     };
     $(myCanvas).mousemove(drawLineOnMouseMove);
     $(myCanvas).mousedown(drawLineOnMouseMove);
-    $(myCanvas).drawTouch();
+    $(myCanvas).on("touchstart", drawLineOnMouseMove);
+    $(myCanvas).on("touchmove", drawLineOnMouseMove);
 
 
 
