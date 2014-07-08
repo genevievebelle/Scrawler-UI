@@ -1,6 +1,5 @@
 var ImmortalListItemView = function(immortalListItem) {
   this.parentWrapper  = '<li />';
-  this.childrenWrapper = "<span class='time'>";
   this.html = '';
   this.buildHtml(immortalListItem);
 };
@@ -12,6 +11,8 @@ ImmortalListItemView.prototype = {
   },
 
   htmlStringConstructor: function(immortalListItem) {
-    return immortalListItem.content + '</br>' + ImmortalListItemView.childrenWrapper + immortalListItem.timeStamp + "</span>";
-  }
+    return immortalListItem.content + "</br>" +
+    "<span class='time'>" + immortalListItem.timeStamp + "</span>" +
+    "<span class='user-name'>" + immortalListItem.userName + "</span>";
+  },
 };
