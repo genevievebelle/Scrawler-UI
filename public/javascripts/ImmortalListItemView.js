@@ -7,7 +7,11 @@ var ImmortalListItemView = function(immortalListItem) {
 
 ImmortalListItemView.prototype = {
   buildHtml: function(immortalListItem) {
-    var htmlString = immortalListItem.content + '</br>' + this.childrenWrapper + immortalListItem.timeStamp + "</span>";
+    var htmlString = this.htmlStringConstructor(immortalListItem);
     this.html = $(this.parentWrapper).html(htmlString);
+  },
+
+  htmlStringConstructor: function(immortalListItem) {
+    return immortalListItem.content + '</br>' + ImmortalListItemView.childrenWrapper + immortalListItem.timeStamp + "</span>";
   }
 };
