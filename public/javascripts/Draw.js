@@ -59,9 +59,7 @@ var Draw = (function () {
   //   };
     //Keep track of if the mouse is up or down
     //myCanvas.onmousedown = function () {mouseDown = 1;};
-    //myCanvas.onmouseout = myCanvas.onmouseup = function () {
-    //  mouseDown = 0; lastPoint = null;
-    //};
+
 
 
     // var testfunction = function(){
@@ -76,6 +74,18 @@ var Draw = (function () {
     //     };
 
     myCanvas.onmousedown = function () {mouseDown = 1;};
+    myCanvas.onmouseout = myCanvas.onmouseup = function () {
+    mouseDown = 0; lastPoint = null;
+    };
+
+    $(myCanvas).touchstart(function() {
+      mouseDown=1;
+      console.log("touuchh");
+    });
+    $(myCanvas).touchmove(function() {
+      mouseDown=1;
+      console.log("moveeingng");
+    });
 
     $(myCanvas).touchend(function(){
       mouseDown = 0;
@@ -127,7 +137,6 @@ var Draw = (function () {
         }
       }
       lastPoint = [x1, y1];
-      console.log('END OF METHOD');
     };
     //$(myCanvas).mousemove(drawLineOnMouseMove);
     //$(myCanvas).mousedown(drawLineOnMouseMove);
