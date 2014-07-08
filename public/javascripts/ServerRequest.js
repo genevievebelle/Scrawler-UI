@@ -6,8 +6,8 @@ var ServerRequest = (function(){
   };
 
   var getRoomInfo = function(data) {
-    var Immortals = data.Messages;
-    ImmortalMessage.buildImmortalMessage(Immortals);
+    Window.appendRoomName(data.ChatroomName);
+    ImmortalMessage.buildImmortalMessage(data.Messages);
     FirebaseModule.createFireBase(data.FireBaseRoomId);
     FirebaseModule.bindFirebaseActions();
   };
