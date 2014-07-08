@@ -38,6 +38,25 @@ var Draw = (function () {
       item.appendTo('#colorholder');
     }
 
+  $.fn.drawTouch = function() {
+      var start = function(e) {
+            e = e.originalEvent;
+        ctx.beginPath();
+        x = e.changedTouches[0].pageX;
+        y = e.changedTouches[0].pageY-44;
+        ctx.moveTo(x,y);
+      };
+      var move = function(e) {
+        e.preventDefault();
+            e = e.originalEvent;
+        x = e.changedTouches[0].pageX;
+        y = e.changedTouches[0].pageY-44;
+        ctx.lineTo(x,y);
+        ctx.stroke();
+      };
+      $(this).on("touchstart", start);
+      $(this).on("touchmove", move);
+    };
     //Keep track of if the mouse is up or down
     myCanvas.onmousedown = function () {mouseDown = 1;};
     myCanvas.onmouseout = myCanvas.onmouseup = function () {
@@ -82,8 +101,9 @@ var Draw = (function () {
     };
     $(myCanvas).mousemove(drawLineOnMouseMove);
     $(myCanvas).mousedown(drawLineOnMouseMove);
-    $(myCanvas).on({'touchstart' : drawLineOnMouseMove});
-   // $(myCanvas).touchcancel(drawLineOnMouseMove);
+    $(myCanvas).drawTouch();
+
+
 
     // Add callbacks that are fired any time the pixel data changes and adjusts the canvas appropriately.
     // Note that child_added events will be fired for initial pixel data as well.
