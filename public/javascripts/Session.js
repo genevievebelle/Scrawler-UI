@@ -9,16 +9,14 @@ var Session = (function() {
 		localStorage.setItem("EntryTime", Date.now());
 	};
 
-	var checkTime = function() {
+	var timeUp = function() {
 		var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 600000; // 10 minutes
 
-		if (parseInt(Date.now()) > sessionEnd) {
-			return true;
-		}
+		return (parseInt(Date.now()) > sessionEnd);
 	};
 
 	var expireSession = function() {
-		if (checkTime() == true) {
+		if (timeUp()) {
 			Window.clearChat();
 			Window.appendSystemMessage("Times up! Scan QR code again to refresh the session.");
 		};
@@ -26,7 +24,6 @@ var Session = (function() {
 
 	return {
 		initialSet: initialSet,
-		expireSession: expireSession
-	}
+		expireSession: expireSession	}
 })();
 
