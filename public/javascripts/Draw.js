@@ -38,55 +38,12 @@ var Draw = (function () {
       item.appendTo('#colorholder');
     }
 
-  // var drawTouch = function() {
-  //     var start = function(e) {
-  //           e = e.originalEvent;
-  //       ctx.beginPath();
-  //       x = e.changedTouches[0].pageX;
-  //       y = e.changedTouches[0].pageY-44;
-  //       ctx.moveTo(x,y);
-  //     };
-  //     var move = function(e) {
-  //       e.preventDefault();
-  //           e = e.originalEvent;
-  //       x = e.changedTouches[0].pageX;
-  //       y = e.changedTouches[0].pageY-44;
-  //       ctx.lineTo(x,y);
-  //       ctx.stroke();
-  //     };
-  //     $(this).on("touchstart", drawLineOnMouseMove);
-  //     $(this).on("touchmove", drawLineOnMouseMove);
-  //   };
-    //Keep track of if the mouse is up or down
-    //myCanvas.onmousedown = function () {mouseDown = 1;};
-
-
-
-    // var testfunction = function(){
-    //   mouseDown = 1;
-    //   console.log("touchhhh");
-    // };
-
-    // var movefunction = function(){
-    //       mouseDown = 1;
-    //       console.log("moveeingng");
-    //       console.log(mouseDown);
-    //     };
-
     myCanvas.onmousedown = function () {mouseDown = 1;};
     myCanvas.onmouseout = myCanvas.onmouseup = function () {
     mouseDown = 0; lastPoint = null;
     };
-
-    $(myCanvas).touchstart(function() {
-      mouseDown=1;
-      console.log("touuchh");
-    });
-    $(myCanvas).touchmove(function() {
-      mouseDown=1;
-      console.log("moveeingng");
-    });
-
+    $(myCanvas).touchstart(function() {mouseDown=1;});
+    $(myCanvas).touchmove(function() {mouseDown=1;});
     $(myCanvas).touchleave = $(myCanvas).touchend(function() {
     mouseDown = 0; lastPoint = null;
     });
@@ -96,14 +53,9 @@ var Draw = (function () {
       if (!mouseDown) return;
       e.preventDefault();
       e = e.originalEvent.changedTouches[0];  //this line is for touch events, not mouse events.
-      console.log(e.type);
-      console.log(mouseDown);
-
 
       // Bresenham's line algorithm. We use this to ensure smooth lines are drawn
       var offset = $('canvas').offset();
-      console.log("normal x:", e.pageX);
-      console.log("normal y:", e.pageY);
       var x1 = Math.floor((e.pageX - offset.left) / pixSize - 1),
         y1 = Math.floor((e.pageY - offset.top) / pixSize - 1);
 
@@ -132,10 +84,6 @@ var Draw = (function () {
     //$(myCanvas).mousedown(drawLineOnMouseMove);
     $(myCanvas).touchmove(drawLineOnMouseMove);
     $(myCanvas).touchstart(drawLineOnMouseMove);
-    //$(myCanvas).on("touchstart", testfunction);
-    //$(myCanvas).on("touchmove", movefunction);
-
-
 
     // Add callbacks that are fired any time the pixel data changes and adjusts the canvas appropriately.
     // Note that child_added events will be fired for initial pixel data as well.
