@@ -6,7 +6,7 @@ describe("ImmortalView", function(){
 
     beforeEach(function() {
       itemList = Window.immortalMessageList;
-      spyOn(itemList, 'append');
+      spyOn(itemList, "append");
       immortalListItemView = [];
       ImmortalView.appendImmortalList(immortalListItemView);
     });
@@ -16,7 +16,50 @@ describe("ImmortalView", function(){
     });
 	});
 
-  descrive("hideImmortalListItemView", function() {
+  describe("hideImmortalListItemView", function() {
 
+    beforeEach(function() {
+      ImmortalView.hideImmortalListItemView;
+    });
+
+    it("initiates rotation of messages", function() {
+      expect(ImmortalView.rotateImmortalListItemView).toHaveBeenCalled;
+    });
+
+    it("sets the timer for displaying each message", function() {
+      expect(window.setTimeout).toHaveBeenCalled;
+    });
   });
+
+  describe("rotateImmortalListItemView", function() {
+
+    beforeEach(function() {
+      ImmortalView.rotateImmortalListItemView;
+    });
+
+    it("invokes function that determines message replacement behaviour", function() {
+      expect(ImmortalView.alternateCurrentItem).toHaveBeenCalled;
+    });
+
+    it("establishes a display loop", function() {
+      expect(window.setTimeout).toHaveBeenCalled;
+      expect(ImmortalView.rotateImmortalListItemView).toHaveBeenCalled;
+    });
+  });
+
+  describe("alernateCurrentItem", function() {
+
+    it("defines message rotation behaviour", function() {
+      ImmortalView.alernateCurrentItem;
+      expect(ImmortalView.getTotalItems).toHaveBeenCalled;
+    });
+  });
+
+  // describe ("getTotalItems", function() {
+
+  //   it("gets the total number of messages to display", function() {
+  //     ImmortalView.getTotalItems;
+  //     expect(totalItems).toBeDefined;
+  //   });
+  // });
 });

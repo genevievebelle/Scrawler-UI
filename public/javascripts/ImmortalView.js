@@ -18,7 +18,7 @@ var ImmortalView = (function() {
   };
 
   var alternateCurrentItem = function() {
-    var totalItems = itemList.children().length;
+    var totalItems = getTotalItems();
     currentItem++;
     if(currentItem === totalItems){
       currentItem =  0;
@@ -26,10 +26,15 @@ var ImmortalView = (function() {
     itemList.children().eq(currentItem).fadeIn();
   };
 
+  var getTotalItems = function() {
+    return itemList.children().length;
+  };
+
   return {
     appendImmortalList: appendImmortalList,
     rotateImmortalListItemView: rotateImmortalListItemView,
-    hideImmortalListItemView: hideImmortalListItemView
+    hideImmortalListItemView: hideImmortalListItemView,
+    getTotalItems: getTotalItems
   };
 })();
 
