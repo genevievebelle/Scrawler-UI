@@ -17,14 +17,15 @@ describe("ImmortalListItemView", function() {
     });
 
     it("has a method for constructing an html string", function() {
-      expect(newView.buildHtml).toBeDefined;
+      expect(newView.buildHtml).toBeDefined();
     });
   });
 
   describe("buildHtml", function() {
 
     it("returns a defined html property", function() {
-      expect(newView.html).toBeDefined;
+      newView.buildHtml(immortalListItem);
+      expect(newView.html).toBeDefined();
     });
   });
 

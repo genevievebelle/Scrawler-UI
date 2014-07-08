@@ -9,16 +9,16 @@ var ImmortalView = (function() {
   var hideImmortalListItemView = function() {
     itemList.children().hide();
     itemList.children().first().show();
-    setTimeout(rotateImmortalListItemView, 4000);
+    setTimeout(ImmortalView.rotateImmortalListItemView, 4000);
   };
 
   var rotateImmortalListItemView = function() {
-    itemList.children().eq(currentItem).fadeOut(1000, alternateCurrentItem);
-    setTimeout(rotateImmortalListItemView, 4000);
+    itemList.children().eq(currentItem).fadeOut(1000, ImmortalView.alternateCurrentItem);
+    setTimeout(ImmortalView.rotateImmortalListItemView, 4000);
   };
 
   var alternateCurrentItem = function() {
-    var totalItems = getTotalItems();
+    var totalItems = ImmortalView.getTotalItems();
     currentItem++;
     if(currentItem === totalItems){
       currentItem =  0;
@@ -34,6 +34,7 @@ var ImmortalView = (function() {
     appendImmortalList: appendImmortalList,
     rotateImmortalListItemView: rotateImmortalListItemView,
     hideImmortalListItemView: hideImmortalListItemView,
+    alternateCurrentItem: alternateCurrentItem,
     getTotalItems: getTotalItems
   };
 })();

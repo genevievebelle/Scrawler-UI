@@ -19,47 +19,37 @@ describe("ImmortalView", function(){
   describe("hideImmortalListItemView", function() {
 
     beforeEach(function() {
-      ImmortalView.hideImmortalListItemView;
-    });
-
-    it("initiates rotation of messages", function() {
-      expect(ImmortalView.rotateImmortalListItemView).toHaveBeenCalled;
+      spyOn(ImmortalView, "rotateImmortalListItemView");
+      spyOn(window, "setTimeout");
+      ImmortalView.hideImmortalListItemView();
     });
 
     it("sets the timer for displaying each message", function() {
-      expect(window.setTimeout).toHaveBeenCalled;
+      expect(window.setTimeout).toHaveBeenCalledWith(ImmortalView.rotateImmortalListItemView, 4000);
     });
   });
 
   describe("rotateImmortalListItemView", function() {
 
     beforeEach(function() {
-      ImmortalView.rotateImmortalListItemView;
-    });
-
-    it("invokes function that determines message replacement behaviour", function() {
-      expect(ImmortalView.alternateCurrentItem).toHaveBeenCalled;
+      spyOn(window, "setTimeout");
+      ImmortalView.rotateImmortalListItemView();
     });
 
     it("establishes a display loop", function() {
-      expect(window.setTimeout).toHaveBeenCalled;
-      expect(ImmortalView.rotateImmortalListItemView).toHaveBeenCalled;
+      expect(window.setTimeout).toHaveBeenCalledWith(ImmortalView.rotateImmortalListItemView, 4000);
     });
   });
 
   describe("alernateCurrentItem", function() {
 
+    beforeEach(function() {
+      spyOn(ImmortalView, "getTotalItems");
+      ImmortalView.alternateCurrentItem();
+    });
+
     it("defines message rotation behaviour", function() {
-      ImmortalView.alernateCurrentItem;
-      expect(ImmortalView.getTotalItems).toHaveBeenCalled;
+      expect(ImmortalView.getTotalItems).toHaveBeenCalled();
     });
   });
-
-  // describe ("getTotalItems", function() {
-
-  //   it("gets the total number of messages to display", function() {
-  //     ImmortalView.getTotalItems;
-  //     expect(totalItems).toBeDefined;
-  //   });
-  // });
 });
