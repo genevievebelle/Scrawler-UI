@@ -4,7 +4,6 @@ var FirebaseModule = (function(){
 
   var createFireBase = function(roomKey) {
     room = roomKey;
-    console.log(room);
     fb = new Firebase("https://intense-fire-3380.firebaseio.com/" + roomKey);
   };
 
