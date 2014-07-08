@@ -87,7 +87,7 @@ var Draw = (function () {
       console.log("moveeingng");
     });
 
-    myCanvas.touchleave = myCanvas.touchend = function () {
+    $(myCanvas).touchleave = $(myCanvas).touchend = function () {
     mouseDown = 0; lastPoint = null;
     };
 
