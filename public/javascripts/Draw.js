@@ -52,7 +52,10 @@ var Draw = (function () {
     var drawLineOnMouseMove = function(e) {
       if (!mouseDown) return;
       e.preventDefault();
-      e = e.originalEvent.changedTouches[0];  //this line is for touch events, not mouse events.
+
+      e = (e.type === "touchstart"|| e.type === "touchmove") ? e.originalEvent.changedTouches[0] : e;
+      //Checks to see whether the event is a touch or mouse event and assigns e 
+      //to ensure that e.pageX/e.pageY can be accessed. 
 
       // Bresenham's line algorithm. We use this to ensure smooth lines are drawn
       var offset = $('canvas').offset();
@@ -80,8 +83,8 @@ var Draw = (function () {
       }
       lastPoint = [x1, y1];
     };
-    //$(myCanvas).mousemove(drawLineOnMouseMove);
-    //$(myCanvas).mousedown(drawLineOnMouseMove);
+    $(myCanvas).mousemove(drawLineOnMouseMove);
+    $(myCanvas).mousedown(drawLineOnMouseMove);
     $(myCanvas).touchmove(drawLineOnMouseMove);
     $(myCanvas).touchstart(drawLineOnMouseMove);
 
