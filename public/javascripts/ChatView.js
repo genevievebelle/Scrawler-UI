@@ -9,15 +9,6 @@ var ChatView = (function() {
     window.scrollTo(0,document.body.scrollHeight);
   };
 
-  var appendSystemMessage = function(text) {
-    $('<li/>').html(text).appendTo(Window.chatLog).css('color', 'red');
-    window.scrollTo(0,document.body.scrollHeight);
-  }
-
-  var appendRoomName = function(name) {
-    $(".room-name").text(name);
-  };
-
   return {
     appendMessageDiv: appendMessageDiv,
     appendSystemMessage: appendSystemMessage,
