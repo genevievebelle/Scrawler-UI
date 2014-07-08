@@ -4,7 +4,7 @@ var Draw = (function () {
     var pixSize = 4, lastPoint = null, currentColor = "000", mouseDown = 0;
 
     //Create a reference to the pixel data for our drawing.
-    var pixelDataRef = new Firebase('https://intense-fire-3380.firebaseio.com/draw');
+    var pixelDataRef = new Firebase('https://intense-fire-3380.firebaseio.com/draw'+ FirebaseModule.roomKey);
 
     // Set up our canvas
     var myCanvas = document.getElementById('drawing-canvas');
@@ -15,23 +15,58 @@ var Draw = (function () {
     }
 
     //Setup each color palette & add it to the screen
-    var colors = ["fff","000","f00","0f0","00f","f05","f80","0f8","cf0","08f","408"];
+    var colors = ["000","f00","0f0","00f","f05","f80","0f8","cf0","08f","408", "fff",];
     for (c in colors) {
+      if (colors[c] === "fff") {
+      var item = $('<div/>').css("background-color", '#' + colors[c]).addClass("colorbox").addClass("eraser");
+      }
+      else {
       var item = $('<div/>').css("background-color", '#' + colors[c]).addClass("colorbox");
+      }
       item.click((function () {
         var col = colors[c];
         return function () {
+        if (col === "fff") {
+          pixSize = 50;
+        }
+        else {
+          pixSize = 4;
+        }
           currentColor = col;
         };
       })());
       item.appendTo('#colorholder');
     }
 
+  // var drawTouch = function() {
+  //     var start = function(e) {
+  //           e = e.originalEvent;
+  //       ctx.beginPath();
+  //       x = e.changedTouches[0].pageX;
+  //       y = e.changedTouches[0].pageY-44;
+  //       ctx.moveTo(x,y);
+  //     };
+  //     var move = function(e) {
+  //       e.preventDefault();
+  //           e = e.originalEvent;
+  //       x = e.changedTouches[0].pageX;
+  //       y = e.changedTouches[0].pageY-44;
+  //       ctx.lineTo(x,y);
+  //       ctx.stroke();
+  //     };
+  //     $(this).on("touchstart", drawLineOnMouseMove);
+  //     $(this).on("touchmove", drawLineOnMouseMove);
+  //   };
     //Keep track of if the mouse is up or down
     myCanvas.onmousedown = function () {mouseDown = 1;};
     myCanvas.onmouseout = myCanvas.onmouseup = function () {
       mouseDown = 0; lastPoint = null;
     };
+
+    // myCanvas.touchstart = function(){mouseDown = 1;};
+    // myCanvas.onmouseout = myCanvas.touchcancel = function(){
+    //   mouseDown = 0; lastPoint = null;
+    // };
 
     //Draw a line from the mouse's last position to its current position
     var drawLineOnMouseMove = function(e) {
@@ -66,6 +101,10 @@ var Draw = (function () {
     };
     $(myCanvas).mousemove(drawLineOnMouseMove);
     $(myCanvas).mousedown(drawLineOnMouseMove);
+    $(myCanvas).on("touchstart", drawLineOnMouseMove);
+    $(myCanvas).on("touchmove", drawLineOnMouseMove);
+
+
 
     // Add callbacks that are fired any time the pixel data changes and adjusts the canvas appropriately.
     // Note that child_added events will be fired for initial pixel data as well.
