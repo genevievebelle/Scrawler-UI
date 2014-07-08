@@ -19,12 +19,15 @@ var Window = {
 	},
 
 	fadeSendButton: function(){
+    setTimeout(restoreSendButton, 5000);
 		Window.sendButton.css("background-color", "#8A8A8A");
 	},
 
 	restoreSendButton: function(){
 		Window.sendButton.css("background-color", "black");
 	}
+
+
 };
 
 

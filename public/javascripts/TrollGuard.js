@@ -21,17 +21,7 @@ var Trollguard = (function(){
 		} else return true;
 	};
 
-	var fadeSend = function(){ 
-		Window.fadeSendButton();
-		setTimeout(restoreSend, 5000);
-	};
-
-	var restoreSend = function(){
-		Window.restoreSendButton();
-	};
-
 	return {
-		checkSpammer: checkSpammer,
-		fadeSend: fadeSend
+		checkSpammer: checkSpammer
 	};
 })();

@@ -24,8 +24,8 @@ var FirebaseModule = (function(){
       fb.push({text: text, username: localStorage.getItem("Username")});
       Window.messageInput.val('');
     } else {
-      Trollguard.fadeSend();
-      ChatView.appendSystemMessage("Messaging disabled for 5 seconds");
+      Window.fadeSendButton();
+      Window.appendSystemMessage("Messaging disabled for 5 seconds");
     };
   };
 
