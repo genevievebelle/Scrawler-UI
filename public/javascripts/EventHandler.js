@@ -19,7 +19,6 @@ var EventHandler = (function() {
 			FirebaseId : FirebaseModule.getRoom(),
       MessageId: jQueryObject.attr("data-id"),
     }
-    console.log(msg);
     upVoteAjaxRequest(msg);
   };
 

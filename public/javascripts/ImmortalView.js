@@ -20,7 +20,6 @@ var ImmortalView = (function() {
   var alternateCurrentItem = function() {
     var totalItems = itemList.children().length;
     currentItem++;
-    console.log("currentitem", currentItem);
     if(currentItem === totalItems){
       currentItem =  0;
     }
