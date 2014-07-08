@@ -1,11 +1,22 @@
 describe("ImmortalView", function(){
 
-  describe("rotation", function(){
-		it("correctly identifies total number of immortals", function(){
-			var immortalData = [{content: 'immortal1'},{content: 'immortal2'}];
-			ImmortalMessage.buildImmortalMessage(immortalData);
-			expect(immortalData.length).toEqual(totalItems);
-// View testing a lost cause??
-		});
+  describe("appendImmortalList", function() {
+
+    var immortalListItemView;
+
+    beforeEach(function() {
+      itemList = Window.immortalMessageList;
+      spyOn(itemList, 'append');
+      immortalListItemView = [];
+      ImmortalView.appendImmortalList(immortalListItemView);
+    });
+
+    it("appends a new immortal view instance to the list", function() {
+      expect(itemList.append).toHaveBeenCalledWith(immortalListItemView.html);
+    });
 	});
+
+  descrive("hideImmortalListItemView", function() {
+
+  });
 });
