@@ -1,6 +1,6 @@
 describe("ImmortalListItemView", function() {
 
-  var immortalListItem = {content: "serious sizzlers?", messageId: 13, timeStamp: "July 4th"}
+  var immortalListItem = {content: "serious sizzlers?", messageId: 13, timeStamp: "July 4th", userName: "murdoch mckenzie"};
 
   beforeEach(function() {
     // Be careful here I don't know to what scope this variable is being hoisted
@@ -12,10 +12,6 @@ describe("ImmortalListItemView", function() {
 
     it("contains a list item wrapper", function() {
       expect(newView.parentWrapper).toEqual('<li />');
-    });
-
-    it("contains an internal span class wrapper", function() {
-      expect(newView.childrenWrapper).toEqual("<span class='time'>");
     });
 
     it("has a method for constructing an html string", function() {
@@ -36,7 +32,7 @@ describe("ImmortalListItemView", function() {
   describe("htmlString", function() {
 
     it("constructs an html string from an immortalListItem", function() {
-      expect(newView.htmlStringConstructor(immortalListItem)).toEqual("serious sizzlers?</br>undefinedJuly 4th</span>");
+      expect(newView.htmlStringConstructor(immortalListItem)).toEqual("serious sizzlers?</br><span class='time'>July 4th</span><span class='user-name'>murdoch mckenzie</span>");
     });
   });
 });
