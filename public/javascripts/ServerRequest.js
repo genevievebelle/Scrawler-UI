@@ -15,9 +15,9 @@ var ServerRequest = (function(){
 
   var sendRoomInfoRequest = function() {
     $.ajax({
-      url: ServerRequest.roomInfoBaseUrl  +ServerRequest.getRoomId(incomingUrl),
+      url: (roomInfoBaseUrl + ServerRequest.getRoomId(incomingUrl)),
       type: "GET",
-      success: ServerRequest.getRoomInfo,
+      success: ServerRequest.setRoomInfo,
       failure: Errors.ajaxErrorMessage
       });
   };
@@ -40,6 +40,8 @@ var ServerRequest = (function(){
   return {
     sendRoomInfoRequest: sendRoomInfoRequest,
     getRoomId: getRoomId,
-    setRoomInfo : setRoomInfo
+    setRoomInfo : setRoomInfo,
+    roomInfoBaseUrl: roomInfoBaseUrl,
+    incomingUrl: incomingUrl
   };
 })();

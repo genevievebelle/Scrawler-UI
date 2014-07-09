@@ -15,7 +15,6 @@ describe("Session", function() {
 		});
 		
 		it("sets a Username", function() {
-			console.log(localStorage.setItem.calls.mostRecent().args)
 			expect(localStorage.setItem.calls.mostRecent().args[0]).toEqual("Username");
 		});
 	});
