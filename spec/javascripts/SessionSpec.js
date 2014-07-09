@@ -1,6 +1,7 @@
 describe("Session", function() {
 	beforeEach(function(){
 		spyOn(Date, "now").and.returnValue(1404810612883);
+
 	});
 
 	describe("initialSet", function() {
@@ -32,8 +33,8 @@ describe("Session", function() {
 				Session.checkTime();
 			});
 
-			it("clears the chat", function() {
-				expect(Window.clearChat).toHaveBeenCalled();
+			it("redirects to splash page", function() {
+				expect(Window.redirectTo).toHaveBeenCalled();
 			});
 		});
 
@@ -43,8 +44,8 @@ describe("Session", function() {
 				Session.checkTime();
 			})
 
-			it("doesn't clear the chat", function() {
-				expect(Window.clearChat).not.toHaveBeenCalled();
+			it("doesn't redirect to splash page", function() {
+				expect(Window.redirectTo).not.toHaveBeenCalled();
 			});
 
 			it("appends a warning message", function() {
@@ -57,8 +58,8 @@ describe("Session", function() {
 				localStorage.setItem("EntryTime", Date.now() - 539999)
 				Session.checkTime();
 			});
-			it("doesn't clear the chat", function() {
-				expect(Window.clearChat).not.toHaveBeenCalled();
+			it("doesn't redirect to splash page", function() {
+				expect(Window.redirectTo).not.toHaveBeenCalled();
 			});
 
 			it("doesn't append a warning message", function() {
