@@ -19,8 +19,6 @@ describe("Session", function() {
 		});
 	});
 
-
-
 	describe("checkTime", function() {
 		beforeEach(function() {
 			spyOn(Window, "clearChat");

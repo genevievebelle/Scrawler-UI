@@ -22,18 +22,4 @@ describe("ChatMessage", function(){
       expect(newMessage.Content).toEqual(text);
     });
   });
-
-  describe("constructHtml", function() {
-
-    it("constructs a html string for the chat message object", function() {
-      expect(newMessage.constructHtml()).toBeDefined();
-      expect(newMessage.constructHtml()).toEqual("<div class='message'>
-                                                    <li>
-                                                      <span class='glyphicon glyphicon-thumbs-up upvote orange' data-id='-JRJvoXrMbzzsgGe7wcp'></span>
-                                                      <span class='username'>Ebba Brekke</span>
-                                                      <span class='content'>chat</span>
-                                                    </li>
-                                                  </div>");
-    });
-  });
 });
