@@ -7,10 +7,8 @@ var ServerRequest = (function(){
   };
 
   var setRoomInfo = function(data) {
-    console.log(data);
     if (data.Error === "Invalid") {
       window.location.href = data.Address;
-      console.log("here");
     }
     Window.appendRoomName(data.ChatroomName);
     ImmortalMessage.buildImmortalMessage(data.Messages);

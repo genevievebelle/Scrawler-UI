@@ -34,8 +34,6 @@ describe("ChatMessage", function(){
                                                       <span class='content'>chat</span>
                                                     </li>
                                                   </div>");
-
-
     });
   });
 });
