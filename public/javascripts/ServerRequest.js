@@ -1,33 +1,25 @@
 var ServerRequest = (function(){
   var incomingUrl = window.location.search;
+  var roomInfoBaseUrl = "http://scrawler.azurewebsites.net/chat/getroominformation?id=";
 
   var getRoomId = function(url) {
     return url.split('=')[1];
   };
 
-  // Not sure about the name, you call it "get..." but it doesn't return
-  // anything. Perhaps a "set..." or something else would reveal the
-  // intentions of this code better.
-  var getRoomInfo = function(data) {
+  var setRoomInfo = function(data) {
     Window.appendRoomName(data.ChatroomName);
     ImmortalMessage.buildImmortalMessage(data.Messages);
     FirebaseModule.createFireBase(data.FireBaseRoomId);
     FirebaseModule.bindFirebaseActions();
   };
 
-  // How to build up the url should be the responsibility of another
-  // (private) function. Also rather than using a string inline
-  // have the base url stored in a variable or object literal of some
-  // kind. Same goes for all AJAX calls.
   var sendRoomInfoRequest = function() {
     $.ajax({
-      url: "http://scrawler.azurewebsites.net/chat/getroominformation?id="+ServerRequest.getRoomId(incomingUrl),
+      url: ServerRequest.roomInfoBaseUrl  +ServerRequest.getRoomId(incomingUrl),
       type: "GET",
       success: ServerRequest.getRoomInfo,
-      failure: function() {
-        console.log("ajax failure");
-      }
-    });
+      failure: Errors.ajaxErrorMessage
+      });
   };
 
   // So you expose getRoomInfo and getRoomId publicly when they are not
@@ -48,6 +40,6 @@ var ServerRequest = (function(){
   return {
     sendRoomInfoRequest: sendRoomInfoRequest,
     getRoomId: getRoomId,
-    getRoomInfo : getRoomInfo
+    setRoomInfo : setRoomInfo
   };
 })();

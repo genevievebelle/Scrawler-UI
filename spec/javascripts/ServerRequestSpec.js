@@ -4,7 +4,7 @@ describe("ServerRequest", function() {
 
     it("it extracts roomId correctly", function() {
       var url = "http://hidden-falls-5768.herokuapp.com/?id=HDK72";
-      var roomId = ServerRequest.getRoomId(url);
+      var roomId = ServerRequest.setRoomId(url);
       expect(roomId).toEqual("HDK72");
     });
   });
@@ -17,7 +17,7 @@ describe("ServerRequest", function() {
       spyOn(ImmortalMessage, "buildImmortalMessage");
       spyOn(FirebaseModule, "createFireBase");
       spyOn(FirebaseModule, "bindFirebaseActions");
-      ServerRequest.getRoomInfo(data);
+      ServerRequest.setRoomInfo(data);
     });
 
     it("calls buildImmortalMessage on ImmortalMessage", function() {
