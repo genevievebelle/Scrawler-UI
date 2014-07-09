@@ -18,6 +18,7 @@ var FirebaseModule = (function(){
 
   var sendMessagetoFireBase = function(text){
     fb.push({text: text, username: localStorage.getItem("Username")});
+    return;
   };
 
   var snapshotFunction = function(snapshot) {
