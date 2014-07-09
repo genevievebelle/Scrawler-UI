@@ -13,8 +13,11 @@ body {
 	font-family: 'Dosis', sans-serif;
 }
 
-h1 {
+h2 {
 	font-family: 'Amatic SC', cursive;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 5px;
 }
 
 .nopadding {
@@ -50,44 +53,45 @@ h1 {
 	margin-bottom: 5px;
 }
 
-.logo {
-	padding-top: 16px;
+.logo-img {
+	padding-top: 5px;
 	padding-left: 0px;
+	padding-right: 10px;
 }
 
 .room-name {
-	font-size: 48px;
+	font-size: 40px;
 }
 
 .immortalMessageList li {
 	list-style: none;
 	text-align: center;
 	font-size: 25px;
-	padding: 20px 5px 30px 5px;
+	padding: 15px 5px 30px 5px;
 	background-color: white;
 	border-radius: 15px
-
 }
 
 .immortalMessageList span {
-	font-size: 18px;
-	color: #8C99A6;
+	font-size: 20px;
+	color: #50575E;
 	margin: 0 10px 0px 10px;
 
 }
 
-.immortalMessageList li .content {
-	text-align: centre;
-	font-size: 30px;
+.immortalMessageList li .immortal-content {
+	text-align: center;
+	font-size: 35px;
 }
 
 .immortalMessageList li .time {
-	float: left;
+	float: right;
 }
 
 .immortalMessageList li .user-name {
-	float: right;
+	float: left;
 }
+
 /* -------------- Main Message Segment -------------- */
 
 .container {
@@ -96,6 +100,7 @@ h1 {
 }
 
 .main {
+	padding-top: 110px;
 	min-height: 100%;
 	padding-bottom: 86px;
 }
