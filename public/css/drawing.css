@@ -7,7 +7,6 @@
 }
 
 #drawing-canvas {
-  border: 3px solid #999;
   background-color: white;
 
 }
@@ -40,12 +39,13 @@
 
 .hand-img {
   display: inline-block;
-  font-size: 50px;
+  font-size: 45px;
   position: relative;
-  top: 6px;
+  top: 8px;
+  left: 5px;
 }
 
 .hand {
   position: relative;
-  top: -15px;
+  top: -26px;
 }
