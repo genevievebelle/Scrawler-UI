@@ -15,8 +15,11 @@ var Draw = (function () {
     }
 
     //Setup each color palette & add it to the screen
-    var colors = ["000","f00","0f0","00f","f05","f80","0f8","cf0","08f","408", "fff", "ERA"];
+    var colors = ["HAND", "ERA", "000","f00","0f0","00f","f05","f80","0f8","cf0","08f","408", "fff"];
     for (c in colors) {
+      if (colors[c] === "ERA") {
+        var item = $('<div/>').css("background-color", '#fff').addClass("colorbox").addClass("hand");
+      };
       if (colors[c] === "ERA") {
       var item = $('<div/>').css("background-color", '#fff').addClass("colorbox").addClass("eraser");
       }
@@ -58,13 +61,11 @@ var Draw = (function () {
     //Draw a line from the mouse's last position to its current position
     var drawLineOnMouseMove = function(e) {
       if (!mouseDown) return;
+      if (currentColor === "HAND") return;
       e.preventDefault();
-
       //Checks to see whether the event is a touch or mouse event and assigns e 
       //to ensure that e.pageX/e.pageY can be accessed. 
       e = (e.type === "touchstart"|| e.type === "touchmove") ? e.originalEvent.changedTouches[0] : e;
-
-
       // Bresenham's line algorithm. We use this to ensure smooth lines are drawn
       var offset = $('canvas').offset();
       var x1 = Math.floor((e.pageX - offset.left) / pixSize - 1),
@@ -103,17 +104,16 @@ var Draw = (function () {
       var coords = snapshot.name().split(":");
       myContext.fillStyle = "#" + snapshot.val();
       myContext.fillRect(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
-      //console.log(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
   };
   var clearPixel = function(snapshot) {
       var coords = snapshot.name().split(":");
       myContext.clearRect(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
-      //console.log(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
     };
     pixelDataRef.on('child_added', drawPixel);
     pixelDataRef.on('child_changed', drawPixel);
     pixelDataRef.on('child_removed', clearPixel);
   };
+
   return {
     setup: setup
   }
