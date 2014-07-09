@@ -76,6 +76,11 @@ h1 {
 
 }
 
+.immortalMessageList li .content {
+	text-align: centre;
+	font-size: 30px;
+}
+
 .immortalMessageList li .time {
 	float: left;
 }
