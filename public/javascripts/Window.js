@@ -4,6 +4,7 @@ var Window = {
   sendButton: $(".send-message"),
   immortalMessageList: $(".immortalMessageList"),
   roomName: $(".room-name"),
+  userName: $(".username"),
 
   appendSystemMessage: function(text) {
     $('<li/>').html(text).appendTo(Window.chatLog).css('color', 'red');
@@ -18,13 +19,13 @@ var Window = {
 		Window.chatLog.empty();
 	},
 
-	fadeSendButton: function(){
-    setTimeout(restoreSendButton, 5000);
-		Window.sendButton.css("background-color", "#8A8A8A");
-	},
+  restoreSendButton: function(){
+    Window.sendButton.css("background-color", "black");
+  },
 
-	restoreSendButton: function(){
-		Window.sendButton.css("background-color", "black");
+	fadeSendButton: function(){
+    setTimeout(Window.restoreSendButton, 5000);
+		Window.sendButton.css("background-color", "#8A8A8A");
 	},
 
   redirectTo: function(url) {

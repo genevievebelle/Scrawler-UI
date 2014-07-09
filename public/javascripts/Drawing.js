@@ -1,7 +1,8 @@
 var Drawing = (function() {
 	var hasBeenSetup = false;
 
-	var changeTab = function() {
+	var changeTab = function(event) {
+		event.preventDefault();
 		if ($(".draw-btn").val() === "draw") {
 			$(".draw-btn").val("chat");
 		} else {
@@ -10,7 +11,8 @@ var Drawing = (function() {
 		$('.main').toggle();
 		$(".draw").toggle();
 		$("#colorholder").toggle();
-		$("#input").toggle();
+		$("#message").toggle();
+		$("#send-message").toggle();
 		if (!hasBeenSetup) {
 			Draw.setup();
 		}

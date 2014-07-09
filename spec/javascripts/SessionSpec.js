@@ -29,6 +29,7 @@ describe("Session", function() {
 
 		describe("at 10mins", function() {
 			beforeEach(function(){
+				Session.initialSet()
 				localStorage.setItem("EntryTime", Date.now() - 600001)
 				Session.checkTime();
 			});

@@ -7,7 +7,6 @@ describe("ImmortalListItem", function(){
   });
 
   describe("new", function() {
-
     it("has message content", function() {
       expect(immortalListItem.content).toEqual(args.Content);
     });

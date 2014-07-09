@@ -35,7 +35,7 @@ var Draw = (function () {
       item.appendTo('#colorholder');
     }
 
-    $('.hand').append("<span class='glyphicon glyphicon-hand-up hand-img'></span>");
+    $('.hand').append("<span class='fa fa-arrows hand-img'></span>");
 
     myCanvas.onmousedown = function () {mouseDown = 1;};
     myCanvas.onmouseout = myCanvas.onmouseup = function () {

@@ -16,8 +16,10 @@ var FirebaseModule = (function(){
     query.on('child_added', FirebaseModule.snapshotFunction);
   };
 
-  var sendMessagetoFireBase = function(text){
-    fb.push({text: text, username: localStorage.getItem("Username")});
+  var sendMessagetoFireBase = function(message){
+    fb.push({text: message, username: localStorage.getItem("Username")});
+    Window.messageInput.val('');
+    return;
   };
 
   var snapshotFunction = function(snapshot) {
@@ -31,6 +33,7 @@ var FirebaseModule = (function(){
     bindFirebaseActions: bindFirebaseActions,
     createFireBase: createFireBase,
     room: room,
-    getRoom: getRoom
+    getRoom: getRoom,
+    sendMessagetoFireBase: sendMessagetoFireBase
   };
 })();

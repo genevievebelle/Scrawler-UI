@@ -10,7 +10,6 @@ ImmortalListItemView.prototype = {
     this.html = $(this.parentWrapper).html(htmlString);
   },
 
-  // TODO: Convert this to handlebars
   htmlStringConstructor: function(immortalListItem) {
     return immortalListItem.content + "</br>" +
     "<span class='time'>" + immortalListItem.timeStamp + "</span>" +
