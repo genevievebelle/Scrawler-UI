@@ -43,6 +43,7 @@ h2 {
 .top {
 	border-bottom: 2px groove white;
 	font-size: 16px;
+	height: 188px;
 }
 
 .immortal {
@@ -63,6 +64,7 @@ h2 {
 	font-size: 40px;
 }
 
+
 .immortalMessageList li {
 	list-style: none;
 	text-align: center;
@@ -81,7 +83,7 @@ h2 {
 
 .immortalMessageList li .immortal-content {
 	text-align: center;
-	font-size: 35px;
+	font-size: 45px;
 }
 
 .immortalMessageList li .time {
@@ -100,7 +102,7 @@ h2 {
 }
 
 .main {
-	padding-top: 110px;
+	padding-top: 187px;
 	min-height: 100%;
 	padding-bottom: 86px;
 }
