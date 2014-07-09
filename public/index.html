@@ -57,9 +57,8 @@
     <!-- Footer/ Send Bar -->
     <div class="footer navbar-fixed-bottom dark">
       <div id="form">
-        <input type="submit" class="btn btn-primary btn-lg draw-btn" value="draw"/>
         <form id="input">
-
+          <input type="submit" class="btn btn-primary btn-lg draw-btn" value="draw"/>
           <input type="textarea" id="message" maxlength="140"/>
           <input type="submit" class="btn btn-primary btn-lg send-message" id="send-message" value="send" />
         </form>
@@ -67,7 +66,7 @@
       </div>
       <div style="display: none" id="colorholder"></div>
     </div>
-    
+
     <!-- End Footer -->
 
   </body>
@@ -76,7 +75,7 @@
   <script id="message-template" type="text/x-handlebars-template">
     <div class='message'>
       <li>
-        <span class='glyphicon glyphicon-thumbs-up upvote orange' data-id='{{ id }}'></span>
+        <span class='glyphicon glyphicon-thumbs-up upvote dark-blue' data-id='{{ id }}'></span>
         <span class='username'>{{ userName }}</span>
         <span class='content'>{{ Content }}</span>
       </li>
