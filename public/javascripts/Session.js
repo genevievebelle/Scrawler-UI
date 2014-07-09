@@ -33,7 +33,8 @@ var Session = (function() {
 	return {
 		initialSet: initialSet,
 		checkTime: checkTime,
-		expireSession: expireSession	
+		expireSession: expireSession
 	};
+
 })();
 

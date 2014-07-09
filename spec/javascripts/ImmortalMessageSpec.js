@@ -4,7 +4,7 @@ describe("ImmortalMessage", function() {
 			spyOn(ImmortalMessage, "buildImmortalMessage").and.callThrough();
 			spyOn(ImmortalView, "hideImmortalListItemView").and.callThrough();
 		});
-		
+
 		it("creates a new instance of immortalListItem", function() {
 			var immortalData = [1,2,3];
 			var immortalListItem = new ImmortalListItem(immortalData);
@@ -20,3 +20,4 @@ describe("ImmortalMessage", function() {
 		});
 	});
 });
+
