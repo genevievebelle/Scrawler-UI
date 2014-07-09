@@ -31,6 +31,7 @@ var FirebaseModule = (function(){
     bindFirebaseActions: bindFirebaseActions,
     createFireBase: createFireBase,
     room: room,
-    getRoom: getRoom
+    getRoom: getRoom,
+    sendMessagetoFireBase: sendMessagetoFireBase
   };
 })();
