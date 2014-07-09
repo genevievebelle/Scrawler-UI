@@ -15,7 +15,7 @@ var EventHandler = (function() {
 
   var sendMessageClickEvent = function(event) {
     event.preventDefault();
-    var checkIfNotSpamming = Trollguard.checkSpammer();
+    var checkIfNotSpamming = TrollGuard.checkSpammer();
     if(checkIfNotSpamming == true){
       //if the user is not spamming, allow them to send a message.
       FirebaseModule.sendMessagetoFireBase(Window.messageInput.val());
