@@ -13,47 +13,59 @@ describe("Session", function() {
 		it("sets an EntryTime", function() {
 			expect(localStorage.setItem).toHaveBeenCalledWith("EntryTime", Date.now())
 		});
-		
+
 		it("sets a Username", function() {
 			expect(localStorage.setItem.calls.mostRecent().args[0]).toEqual("Username");
 		});
 	});
 
 
-	describe("expireSession", function() {
+
+	describe("checkTime", function() {
 		beforeEach(function() {
 			spyOn(Window, "clearChat");
-			Window.clearChat.calls.reset()
+			// Window.clearChat.calls.reset();
+			
 			spyOn(Window, "appendSystemMessage");
-			Window.appendSystemMessage.calls.reset();
+			// Window.appendSystemMessage.calls.reset();
 		});
 
-		describe("when time is up", function() {
+		describe("at 10mins", function() {
 			beforeEach(function(){
 				localStorage.setItem("EntryTime", Date.now() - 600001)
-				Session.expireSession();
+				Session.checkTime();
 			});
 
 			it("clears the chat", function() {
 				expect(Window.clearChat).toHaveBeenCalled();
 			});
-
-			it("throws an alert", function() {
-				expect(Window.appendSystemMessage).toHaveBeenCalled();
-			})
 		});
 
-		describe("when time is not up", function() {
+		describe("at 9 minutes", function() {
 			beforeEach(function(){
-				localStorage.setItem("EntryTime", Date.now() - 600000)
-				Session.expireSession();
+				localStorage.setItem("EntryTime", Date.now() - 540001)
+				Session.checkTime();
 			})
 
 			it("doesn't clear the chat", function() {
 				expect(Window.clearChat).not.toHaveBeenCalled();
 			});
 
-			it("throws an alert", function() {
+			it("appends a warning message", function() {
+				expect(Window.appendSystemMessage).toHaveBeenCalled();
+			});
+		});
+
+		describe("before 9 minutes", function() {
+			beforeEach(function() {
+				localStorage.setItem("EntryTime", Date.now() - 539999)
+				Session.checkTime();
+			});
+			it("doesn't clear the chat", function() {
+				expect(Window.clearChat).not.toHaveBeenCalled();
+			});
+
+			it("doesn't append a warning message", function() {
 				expect(Window.appendSystemMessage).not.toHaveBeenCalled();
 			});
 		});
