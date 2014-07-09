@@ -41,9 +41,9 @@ h2 {
 /* -------------- Top Segment -------------- */
 
 .top {
-	border-bottom: 2px groove white;
+	border-bottom: 2px groove darkgrey;
 	font-size: 16px;
-	height: 188px;
+	min-height: 188px;
 }
 
 .immortal {
@@ -58,6 +58,7 @@ h2 {
 	padding-top: 5px;
 	padding-left: 0px;
 	padding-right: 10px;
+	width: 300px;
 }
 
 .room-name {
@@ -89,10 +90,12 @@ h2 {
 
 .immortalMessageList li .time {
 	float: right;
+	font-size: 20px;
 }
 
 .immortalMessageList li .user-name {
 	float: left;
+	font-size: 20px;
 }
 
 /* -------------- Main Message Segment -------------- */
@@ -134,6 +137,8 @@ h2 {
 
 .message li .username {
 	font-size: 20px;
+	font-weight: 700;
+	padding-right: 10px;
 }
 /* -------------- Bottom Segment -------------- */
 
@@ -193,8 +198,6 @@ h2 {
 .footer {
 	min-width: 100%;
 	border-top: 2px groove darkgrey;
-	padding-top: 10px;
-	padding-bottom: 10px;
 	display: inline-block;
 }
 
@@ -205,7 +208,7 @@ h2 {
 }
 
 .footer {
-	padding: 10px 5px;
+	padding: 30px 5px;
 }
 
 

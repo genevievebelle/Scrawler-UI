@@ -4,6 +4,7 @@ var Window = {
   sendButton: $(".send-message"),
   immortalMessageList: $(".immortalMessageList"),
   roomName: $(".room-name"),
+  userName: $(".username"),
 
   appendSystemMessage: function(text) {
     $('<li/>').html(text).appendTo(Window.chatLog).css('color', 'red');
