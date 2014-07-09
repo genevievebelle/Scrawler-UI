@@ -25,9 +25,11 @@ var Window = {
 
 	restoreSendButton: function(){
 		Window.sendButton.css("background-color", "black");
-	}
+	},
 
-
+  redirectTo: function(url) {
+    window.location.href = url;
+  }
 };
 
 

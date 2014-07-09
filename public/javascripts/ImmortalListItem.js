@@ -4,7 +4,6 @@ var ImmortalListItem = function(args) {
   this.timeStamp = moment(args.Time).format("MMMM Do");
   this.userName = args.Username;
   this.Template = $("#immortal-message-template")
-	console.log(this.Template.html)
 };
 
 ImmortalListItem.prototype = {

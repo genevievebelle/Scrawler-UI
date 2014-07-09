@@ -26,14 +26,15 @@ var Session = (function() {
 
 	var expireSession = function() {
 		if (timeUp()) {
-			window.location.href="http://hidden-falls-5768.herokuapp.com/splash.html";
+			Window.redirectTo("http://hidden-falls-5768.herokuapp.com/splash.html");
 		};
 	};
 
 	return {
 		initialSet: initialSet,
 		checkTime: checkTime,
-		expireSession: expireSession
+		expireSession: expireSession,
+		reset: reset
 	};
 
 })();

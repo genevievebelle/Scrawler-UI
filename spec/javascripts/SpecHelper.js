@@ -1,1 +1,4 @@
-# Empty file. Delete.
+beforeEach(function() {
+	console.log("done")
+	Session.initialSet();
+});

@@ -24,10 +24,8 @@ describe("Session", function() {
 	describe("checkTime", function() {
 		beforeEach(function() {
 			spyOn(Window, "clearChat");
-			// Window.clearChat.calls.reset();
-			
+			spyOn(Window, "redirectTo");
 			spyOn(Window, "appendSystemMessage");
-			// Window.appendSystemMessage.calls.reset();
 		});
 
 		describe("at 10mins", function() {
