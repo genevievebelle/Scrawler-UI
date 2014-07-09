@@ -1,16 +1,10 @@
 var EventHandler = (function() {
-  var jQueryObject;
 
   var bindClickEvents = function() {
-    $(Window.chatLog).on('click', ".upvote", VoteView.upVote);
+    $(Window.chatLog).on('click', '.upvote', VoteView.upVote);
     Window.sendButton.on('click', EventHandler.sendMessageClickEvent);
     $(".draw-btn").on('click', Drawing.changeTab);
     $(".logo-img").on('click', Drawing.changeTab);
-  };
-
-  var changeMessageClass = function(){
-    jQueryObject.removeClass("orange");
-    jQueryObject.addClass("red");
   };
 
   var sendMessageClickEvent = function(event) {
@@ -29,6 +23,6 @@ var EventHandler = (function() {
 
   return {
     bindClickEvents: bindClickEvents,
-    sendMessageClickEvent: sendMessageClickEvent
+    sendMessageClickEvent: sendMessageClickEvent,
   };
 })();

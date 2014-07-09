@@ -1,7 +1,14 @@
 var VoteView = (function() {
+  var jQueryObject;
+
+  var changeMessageClass = function(){
+    jQueryObject.removeClass("orange");
+    jQueryObject.addClass("yellow");
+  };
+
   var upVote = function() {
     jQueryObject = $(this);
-    if (jQueryObject.hasClass("red")) {
+    if (jQueryObject.hasClass("yellow")) {
       return;
     }
     var incomingUrl = window.location.search;
@@ -11,10 +18,12 @@ var VoteView = (function() {
       FirebaseId : FirebaseModule.getRoom(),
       MessageId: jQueryObject.attr("data-id"),
     }
-    EventHandler.upVoteAjaxRequest(msg);
+    ServerRequest.upVoteAjaxRequest(msg);
   };
 
   return {
-    upVote: upVote
+    upVote: upVote,
+    jQueryObject: jQueryObject,
+    changeMessageClass: changeMessageClass
   }
 })();
