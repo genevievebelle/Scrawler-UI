@@ -50,6 +50,14 @@ h1 {
 	margin-bottom: 5px;
 }
 
+.logo {
+	padding-top: 16px;
+	padding-left: 0px;
+}
+
+.room-name {
+	font-size: 48px;
+}
 
 .immortalMessageList li {
 	list-style: none;

@@ -26,7 +26,7 @@ var Session = (function() {
 
 	var expireSession = function() {
 		if (timeUp()) {
-			Window.clearChat();
+			window.location.href="http://hidden-falls-5768.herokuapp.com/splash.html";
 		};
 	};
 
