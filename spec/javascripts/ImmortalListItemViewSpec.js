@@ -3,6 +3,8 @@ describe("ImmortalListItemView", function() {
   var immortalListItem = {content: "serious sizzlers?", messageId: 13, timeStamp: "July 4th"}
 
   beforeEach(function() {
+    // Be careful here I don't know to what scope this variable is being hoisted
+    // global? This you should be using this.newView here.
     newView = new ImmortalListItemView(immortalListItem);
   });
 
@@ -21,6 +23,8 @@ describe("ImmortalListItemView", function() {
     });
   });
 
+  // Would be good to test (with spys) that the methods that manipulate the DOM
+  // like ".html" are being called and with the expected things.
   describe("buildHtml", function() {
 
     it("returns a defined html property", function() {
