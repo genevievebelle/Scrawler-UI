@@ -2,10 +2,6 @@ var ImmortalView = (function() {
   var currentItem = 0;
   var itemList = Window.immortalMessageList;
 
-  // var appendImmortalList = function(immortalListItemView) {
-  //   itemList.append(immortalListItemView.html);
-  // };
-
   var hideImmortalListItemView = function() {
     itemList.children().hide();
     itemList.children().first().show();

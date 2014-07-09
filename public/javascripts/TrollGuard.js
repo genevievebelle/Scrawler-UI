@@ -3,8 +3,8 @@ var Trollguard = (function(){
 	var listOfRecentMessages = {};
 
 	var checkSpammer = function(){
-		incrementCounter();
-		return calculateDifference();
+		Trollguard.incrementCounter();
+		return Trollguard.calculateDifference();
 	};
 
 	var incrementCounter = function(){
