@@ -12,10 +12,15 @@ var FirebaseModule = (function(){
 
   var sendMessageClickEvent = function(event) {
     event.preventDefault();
-    var text = ChatWindow.messageInput.val();
-    fb.push({text: text});
-    ChatWindow.messageInput.val('');
-    Trollguard.incrementCounter();
+    var check = Trollguard.checkSpammer();
+    if(check==true){
+      var text = Window.messageInput.val();
+      fb.push({text: text});
+      Window.messageInput.val('');
+    } else {
+      Trollguard.fadeSend();
+      alert("Spam")
+    };
   };
 
   var snapshotFunction = function(snapshot) {

@@ -8,8 +8,13 @@ body {
 	font-size: 24px;
 	padding-top: 0px;
 	background-color: #121314;
-	color: white;
+	color: black;
 	height: 100%;
+	font-family: 'Dosis', sans-serif;
+}
+
+h1 {
+	font-family: 'Amatic SC', cursive;
 }
 
 .nopadding {
@@ -18,11 +23,11 @@ body {
 }
 
 .orange {
-	color: #C63D0F;
+	color: black;
 }
 
 .dark {
-	background-color: #222326;
+	background-color: white;
 }
 
 .red {
@@ -33,7 +38,7 @@ body {
 /* -------------- Top Segment -------------- */
 
 .top {
-	border-bottom: 2px groove darkgrey;
+	border-bottom: 2px groove white;
 	font-size: 16px;
 }
 
@@ -51,7 +56,7 @@ body {
 	text-align: center;
 	font-size: 25px;
 	padding: 20px 5px 30px 5px;
-	background-color: #34333D;
+	background-color: white;
 	border-radius: 15px
 
 }
@@ -60,6 +65,7 @@ body {
 	font-size: 18px;
 	color: #8C99A6;
 	margin: 0 10px 0px 10px;
+
 }
 
 .immortalMessageList li .time {
@@ -73,6 +79,7 @@ body {
 
 .container {
 	padding: 10px 0px;
+	border: 2px;
 }
 
 .main {
@@ -95,12 +102,12 @@ body {
 	padding-left: 10px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	font-family: 'Open Sans', sans-serif;
-	border-bottom: 1px solid #222326;
+	font-family: 'Dosis', sans-serif
+	border-bottom: 1px solid #F3F2F7;
 }
 
 .messagesDiv li:nth-child(odd) {
-	background-color: #121314;
+	background-color: #F3F2F7;
 }
 
 /* -------------- Bottom Segment -------------- */
@@ -112,7 +119,7 @@ body {
 	top: 3px;
 	border-radius: 5px;
 	padding-left: 10px;
-	color: black;
+	color: darkgrey;
 	background-color: #DFE0E6;
 	font-size: 30px;
 }
@@ -121,16 +128,18 @@ body {
 	margin-left: 10px;
 }
 
+
 #send-message {
 	font-size: 30px;
-	background-color: #C63D0F;
-	border-color: #C63D0F;
+	font-family: 'Amatic SC', cursive;
+	background-color: black;
+	border-color: darkgrey;
 	padding: 14px 50px;
 }
 
 #send-message:hover {
-	background-color: #631E08;
-	border-color: #631E08;
+	background-color: darkgrey;
+	border-color: #F3F2F7;
 }
 
 .footer {
@@ -151,6 +160,7 @@ body {
 }
 
 .draw-btn {
+	background-color: black;
 	font-size: 25px;
 	padding: 10px 0px;
 	width: 100px;
@@ -159,6 +169,7 @@ body {
 	margin-right: 10px;
 	position: relative;
 	top: 3px;
+	font-family: 'Amatic SC', cursive;
 }
 
 
