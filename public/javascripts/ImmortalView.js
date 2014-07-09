@@ -31,7 +31,6 @@ var ImmortalView = (function() {
   };
 
   return {
-    // appendImmortalList: appendImmortalList,
     rotateImmortalListItemView: rotateImmortalListItemView,
     hideImmortalListItemView: hideImmortalListItemView,
     alternateCurrentItem: alternateCurrentItem,
