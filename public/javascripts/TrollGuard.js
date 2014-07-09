@@ -22,7 +22,7 @@ var Trollguard = (function(){
 		var currentIndex = parseInt(index)-1;
 		var oldIndex = currentIndex-7;
 		var timeDifference = listOfRecentMessages[currentIndex] - listOfRecentMessages[oldIndex];
-		allowSend(timeDifference);
+		return allowSend(timeDifference);
 	};
 
 	return {
