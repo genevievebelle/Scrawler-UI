@@ -7,7 +7,6 @@
 }
 
 #drawing-canvas {
-  border: 3px solid #999;
   background-color: white;
 
 }
@@ -31,8 +30,22 @@
 }
 
 .eraser {
-  width: 80px;
-  height: 54px;
-  border: 1px dashed black;
-  margin-left: 10px;
+  width: 60px;
+  height: 66px;
+  margin: 1px;
+  display: inline-block;
+  border: 5px dashed black; 
+}
+
+.hand-img {
+  display: inline-block;
+  font-size: 45px;
+  position: relative;
+  top: 8px;
+  left: 5px;
+}
+
+.hand {
+  position: relative;
+  top: -26px;
 }

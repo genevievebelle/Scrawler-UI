@@ -18,13 +18,18 @@ var Window = {
 		Window.chatLog.empty();
 	},
 
+  restoreSendButton: function(){
+    Window.sendButton.css("background-color", "black");
+  },
+
 	fadeSendButton: function(){
+    setTimeout(Window.restoreSendButton, 5000);
 		Window.sendButton.css("background-color", "#8A8A8A");
 	},
 
-	restoreSendButton: function(){
-		Window.sendButton.css("background-color", "black");
-	}
+  redirectTo: function(url) {
+    window.location.href = url;
+  }
 };
 
 

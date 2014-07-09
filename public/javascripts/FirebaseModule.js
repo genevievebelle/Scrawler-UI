@@ -16,17 +16,10 @@ var FirebaseModule = (function(){
     query.on('child_added', FirebaseModule.snapshotFunction);
   };
 
-  var sendMessageClickEvent = function(event) {
-    event.preventDefault();
-    var check = Trollguard.checkSpammer();
-    if(check==true){
-      var text = Window.messageInput.val();
-      fb.push({text: text, username: localStorage.getItem("Username")});
-      Window.messageInput.val('');
-    } else {
-      Trollguard.fadeSend();
-      ChatView.appendSystemMessage("Messaging disabled for 5 seconds");
-    };
+  var sendMessagetoFireBase = function(message){
+    fb.push({text: message, username: localStorage.getItem("Username")});
+    Window.messageInput.val('');
+    return;
   };
 
   var snapshotFunction = function(snapshot) {
@@ -36,11 +29,11 @@ var FirebaseModule = (function(){
 
   return {
     fb: fb,
-    sendMessageClickEvent: sendMessageClickEvent,
     snapshotFunction: snapshotFunction,
     bindFirebaseActions: bindFirebaseActions,
     createFireBase: createFireBase,
     room: room,
-    getRoom: getRoom
+    getRoom: getRoom,
+    sendMessagetoFireBase: sendMessagetoFireBase
   };
 })();

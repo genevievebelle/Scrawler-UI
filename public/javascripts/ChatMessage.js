@@ -1,11 +1,16 @@
 var ChatMessage = function(text, username, id){
     this.Id = id,
     this.Username = username,
-    this.Content = text
+    this.Content = text,
+    this.Template = $("#message-template")
   };
 
 ChatMessage.prototype = {
 	constructHtml: function(){
-		return $('<li/>').html("<span class='glyphicon glyphicon-thumbs-up upvote orange' data-id='" + this.Id + "'></span><span class='username'>" + this.Username + "</span>: <span class='content'>" + this.Content + "</span>");
-	}
+		var source = this.Template.html();
+		var template = Handlebars.compile(source);
+		var context = { userName: this.Username + ":", id: this.Id, Content: this.Content };
+		var html = template(context);
+		return html;
+	},
 };

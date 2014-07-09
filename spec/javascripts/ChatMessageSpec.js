@@ -22,11 +22,4 @@ describe("ChatMessage", function(){
       expect(newMessage.Content).toEqual(text);
     });
   });
-
-  describe("constructHtml", function() {
-
-    it("constructs a html string for the chat message object", function() {
-      expect(newMessage.constructHtml()).toBeDefined();
-    });
-  });
 });

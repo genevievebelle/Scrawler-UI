@@ -16,3 +16,4 @@ ImmortalListItemView.prototype = {
     "<span class='user-name'>" + immortalListItem.userName + "</span>";
   },
 };
+

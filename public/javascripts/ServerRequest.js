@@ -1,31 +1,30 @@
 var ServerRequest = (function(){
   var incomingUrl = window.location.search;
-
-  var getRoomId = function(url) {
-    return url.split('=')[1];
-  };
-
-  var getRoomInfo = function(data) {
-    Window.appendRoomName(data.ChatroomName);
-    ImmortalMessage.buildImmortalMessage(data.Messages);
-    FirebaseModule.createFireBase(data.FireBaseRoomId);
-    FirebaseModule.bindFirebaseActions();
-  };
+  var roomInfoBaseUrl = "http://scrawler.azurewebsites.net/chat/getroominformation?id=";
 
   var sendRoomInfoRequest = function() {
     $.ajax({
-      url: "http://scrawler.azurewebsites.net/chat/getroominformation?id="+ServerRequest.getRoomId(incomingUrl),
+      url: (roomInfoBaseUrl + Room.getRoomId(incomingUrl)),
       type: "GET",
-      success: ServerRequest.getRoomInfo,
-      failure: function() {
-        console.log("ajax failure");
-      }
+      success: Room.setRoomInfo,
+      failure: Errors.ajaxErrorMessage
+      });
+  };
+
+  var upVoteAjaxRequest = function(msg) {
+    $.ajax({
+      method: "POST",
+      url: "http://scrawler.azurewebsites.net/chat/savemessage",
+      data: msg,
+      success: VoteView.changeMessageClass,
+      failure: Errors.ajaxErrorMessage
     });
   };
 
   return {
     sendRoomInfoRequest: sendRoomInfoRequest,
-    getRoomId: getRoomId,
-    getRoomInfo : getRoomInfo
+    roomInfoBaseUrl: roomInfoBaseUrl,
+    incomingUrl: incomingUrl,
+    upVoteAjaxRequest: upVoteAjaxRequest
   };
 })();

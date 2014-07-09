@@ -1,43 +1,29 @@
 var EventHandler = (function() {
-  var jQueryObject;
 
   var bindClickEvents = function() {
-    $(Window.chatLog).on('click', ".upvote", upVote);
-    Window.sendButton.on('click', FirebaseModule.sendMessageClickEvent);
+    $(Window.chatLog).on('click', '.upvote', VoteView.upVote);
+    Window.sendButton.on('click', EventHandler.sendMessageClickEvent);
     $(".draw-btn").on('click', Drawing.changeTab);
+    $(".logo-img").on('click', Drawing.changeTab);
   };
 
-  var upVote = function() {
-    jQueryObject = $(this);
-    if (jQueryObject.hasClass("red")) {
-      return;
-    }
-		var incomingUrl = window.location.search;
-		var msg = {
-      Name: jQueryObject.parent().find('.username').text(),
-			Content: jQueryObject.parent().find(".content").text(),
-			FirebaseId : FirebaseModule.getRoom(),
-      MessageId: jQueryObject.attr("data-id"),
-    }
-    upVoteAjaxRequest(msg);
-  };
-
-  var upVoteAjaxRequest = function(msg) {
-    $.ajax({
-      method: "POST",
-      url: "http://scrawler.azurewebsites.net/chat/savemessage",
-      data: msg,
-      success: changeMessageClass,
-      failure: Errors.ajaxErrorMessage
-    });
-  };
-
-  var changeMessageClass = function(){
-    jQueryObject.removeClass("orange");
-    jQueryObject.addClass("red");
+  var sendMessageClickEvent = function(event) {
+    event.preventDefault();
+    var checkIfNotSpamming = TrollGuard.checkSpammer();
+    if(checkIfNotSpamming == true){
+      //if the user is not spamming, allow them to send a message.
+      var message = Window.messageInput.val();
+      FirebaseModule.sendMessagetoFireBase(message);
+      
+    } else {
+      //if the user is spamming, do not send the message, fade the send button and alert them.
+      Window.fadeSendButton();
+      Window.appendSystemMessage("Messaging disabled for 5 seconds");
+    };
   };
 
   return {
-    bindClickEvents: bindClickEvents
+    bindClickEvents: bindClickEvents,
+    sendMessageClickEvent: sendMessageClickEvent,
   };
 })();

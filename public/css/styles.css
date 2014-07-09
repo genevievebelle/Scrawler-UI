@@ -13,8 +13,11 @@ body {
 	font-family: 'Dosis', sans-serif;
 }
 
-h1 {
+h2 {
 	font-family: 'Amatic SC', cursive;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 5px;
 }
 
 .nopadding {
@@ -22,16 +25,16 @@ h1 {
 	padding-right: 0px;
 }
 
-.orange {
-	color: black;
+.dark-blue {
+	color: #133263;
 }
 
 .dark {
 	background-color: white;
 }
 
-.red {
-	color: red;
+.yellow {
+	color: #FFC539;
 	font-size: 20px;
 }
 
@@ -50,31 +53,45 @@ h1 {
 	margin-bottom: 5px;
 }
 
+.logo-img {
+	padding-top: 5px;
+	padding-left: 0px;
+	padding-right: 10px;
+}
+
+.room-name {
+	font-size: 40px;
+}
 
 .immortalMessageList li {
 	list-style: none;
 	text-align: center;
 	font-size: 25px;
-	padding: 20px 5px 30px 5px;
+	padding: 15px 5px 30px 5px;
 	background-color: white;
 	border-radius: 15px
-
 }
 
 .immortalMessageList span {
-	font-size: 18px;
-	color: #8C99A6;
+	font-size: 20px;
+	color: #50575E;
 	margin: 0 10px 0px 10px;
 
 }
 
+.immortalMessageList li .immortal-content {
+	text-align: center;
+	font-size: 35px;
+}
+
 .immortalMessageList li .time {
-	float: left;
+	float: right;
 }
 
 .immortalMessageList li .user-name {
-	float: right;
+	float: left;
 }
+
 /* -------------- Main Message Segment -------------- */
 
 .container {
@@ -83,6 +100,7 @@ h1 {
 }
 
 .main {
+	padding-top: 110px;
 	min-height: 100%;
 	padding-bottom: 86px;
 }
@@ -99,11 +117,12 @@ h1 {
 
 .messagesDiv li {
 	list-style: none;
+	background-color: #8C8C8F;
 	padding-left: 10px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	font-family: 'Dosis', sans-serif
-	border-bottom: 1px solid #F3F2F7;
+	font-family: 'Dosis', sans-serif;
+	border: 1px solid #F3F2F7;
 }
 
 .messagesDiv li:nth-child(odd) {
@@ -112,33 +131,57 @@ h1 {
 
 /* -------------- Bottom Segment -------------- */
 
+
 #message {
 	width: 500px;
-	height: 70px;
+	height: 75px;
 	position: relative;
-	top: 3px;
+	top: 1px;
 	border-radius: 5px;
 	padding-left: 10px;
-	color: darkgrey;
+	padding-right: 10px;
+	color: black;
 	background-color: #DFE0E6;
 	font-size: 30px;
+	font-family: 'Dosis', sans-serif;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 #input {
-	margin-left: 10px;
+	position: relative;
+}
+
+.btn {
+	font-family: 'Amatic SC', cursive;
+	font-size: 35px;
+	padding: 14px 35px;
+	margin: 0 auto;
+
 }
 
 .send-message {
-	font-size: 30px;
-	font-family: 'Amatic SC', cursive;
+	border-color: #212E3D;
 	background-color: black;
-	border-color: darkgrey;
-	padding: 14px 50px;
 }
 
 .send-message:hover {
-	background-color: darkgrey;
-	border-color: #F3F2F7;
+	background-color: #133263;
+	border-color: black;
+}
+
+
+.draw-btn {
+	float: left;
+	border-color: #E89D29;
+	background-color: #FFC539;
+	color: #3D1828;
+}
+
+.draw-btn:hover {
+	background-color: #E89D29;
+	border-color: #FFC539;
 }
 
 .footer {
@@ -146,6 +189,7 @@ h1 {
 	border-top: 2px groove darkgrey;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	display: inline-block;
 }
 
 #form {
@@ -158,18 +202,6 @@ h1 {
 	padding: 10px 5px;
 }
 
-.draw-btn {
-	background-color: black;
-	font-size: 25px;
-	padding: 10px 0px;
-	width: 100px;
-	height: 70px;
-	float: left;
-	margin-right: 10px;
-	position: relative;
-	top: 3px;
-	font-family: 'Amatic SC', cursive;
-}
 
 .grey {
 	background-color: "#8A8A8A";
