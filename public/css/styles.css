@@ -72,7 +72,7 @@ h2 {
 	list-style: none;
 	text-align: center;
 	font-size: 25px;
-	padding: 15px 5px 30px 5px;
+	padding: 30px 5px;
 	background-color: white;
 	border-radius: 15px
 }
@@ -112,7 +112,7 @@ h2 {
 .main {
 	padding-top: 187px;
 	min-height: 100%;
-	padding-bottom: 86px;
+	padding-bottom: 130px;
 }
 
 .messagesDiv {
@@ -178,11 +178,13 @@ h2 {
 .send-message {
 	border-color: #212E3D;
 	background-color: black;
+	color: white;
 }
 
 .send-message:hover {
 	background-color: #133263;
 	border-color: black;
+	color: white;
 }
 
 
