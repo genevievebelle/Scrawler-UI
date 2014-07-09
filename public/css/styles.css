@@ -44,6 +44,7 @@ h2 {
 	border-bottom: 2px groove darkgrey;
 	font-size: 16px;
 	min-height: 188px;
+	padding-left: 10px;
 }
 
 .immortal {
@@ -58,7 +59,7 @@ h2 {
 	padding-top: 5px;
 	padding-left: 0px;
 	padding-right: 10px;
-	width: 300px;
+	width: 250px;
 }
 
 .room-name {
@@ -151,7 +152,6 @@ h2 {
 	border-radius: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
-	color: black;
 	background-color: #DFE0E6;
 	font-size: 30px;
 	font-family: 'Dosis', sans-serif;
