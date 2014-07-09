@@ -20,3 +20,4 @@ describe("ImmortalMessage", function() {
 		});
 	});
 });
+
