@@ -72,7 +72,7 @@ h1 {
 	float: left;
 }
 
-.immortalMessageList li .location {
+.immortalMessageList li .user-name {
 	float: right;
 }
 /* -------------- Main Message Segment -------------- */
