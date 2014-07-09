@@ -17,6 +17,9 @@ describe("ImmortalListItem", function(){
     });
 
     it("has a formatted timestamp", function() {
+      // When an expectation is longer like this I like to put the expected
+      // result into a variable.
+      // eg. var expected_time = new Date(args.timeStamp)).format("MMMM Do");
       expect(immortalListItem.timeStamp).toEqual(moment(new Date(args.timeStamp)).format("MMMM Do"));
     });
   });

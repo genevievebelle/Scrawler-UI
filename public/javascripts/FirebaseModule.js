@@ -16,10 +16,13 @@ var FirebaseModule = (function(){
     query.on('child_added', FirebaseModule.snapshotFunction);
   };
 
+  // Had to parse out what is going on here. I think this function is trying
+  // to do more than one thing. It has a preventDefault so it is a view
+  // type thing but it is also talking to Firebase.
   var sendMessageClickEvent = function(event) {
     event.preventDefault();
-    var check = Trollguard.checkSpammer();
-    if(check==true){
+    var checkIfNotSpamming = Trollguard.checkSpammer();
+    if(checkIfNotSpamming == true){
       var text = Window.messageInput.val();
       fb.push({text: text, username: localStorage.getItem("Username")});
       Window.messageInput.val('');
