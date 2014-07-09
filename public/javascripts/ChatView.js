@@ -1,11 +1,10 @@
 var ChatView = (function() {
   var appendMessageDiv = function(text, username, id) {
-    var message = new chatMessage(text, username, id)
-    // If message is empty, do not complete rest of method
-    if(message.Content == ""){
+    if(text == ""){
       return;
     }
-    message.constructHtml().appendTo(Window.chatLog);
+    var message = new ChatMessage(text, username, id)
+    Window.chatLog.append(message.constructHtml());
     window.scrollTo(0,document.body.scrollHeight);
   };
 

@@ -50,6 +50,14 @@ h1 {
 	margin-bottom: 5px;
 }
 
+.logo {
+	padding-top: 16px;
+	padding-left: 0px;
+}
+
+.room-name {
+	font-size: 48px;
+}
 
 .immortalMessageList li {
 	list-style: none;
@@ -68,11 +76,16 @@ h1 {
 
 }
 
+.immortalMessageList li .content {
+	text-align: centre;
+	font-size: 30px;
+}
+
 .immortalMessageList li .time {
 	float: left;
 }
 
-.immortalMessageList li .location {
+.immortalMessageList li .user-name {
 	float: right;
 }
 /* -------------- Main Message Segment -------------- */

@@ -7,6 +7,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Dosis:300|Amatic+SC' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/drawing.css">
   </head>
@@ -16,8 +17,8 @@
       <div class="container immortal dark">
         <div class="row">
           <!-- Logo -->
-          <div class="col-xs-2">
-            <h1>Logo Img</h1>
+          <div class="col-xs-2 logo">
+            <img src="img/scrawler-font-small.png" class='logo-img' alt="LOGO">
           </div>
           <!-- Logo End -->
           <!-- Immortal Message List -->
@@ -59,21 +60,46 @@
         <input type="submit" class="btn btn-primary btn-lg draw-btn" value="draw"/>
         <form id="input">
 
-          <input type="textarea" id="message" />
+          <input type="textarea" id="message" maxlength="140"/>
           <input type="submit" class="btn btn-primary btn-lg send-message" id="send-message" value="send" />
         </form>
 
       </div>
       <div style="display: none" id="colorholder"></div>
     </div>
+    
     <!-- End Footer -->
 
   </body>
+
+  <!-- Handlebars Templates -->
+  <script id="message-template" type="text/x-handlebars-template">
+    <div class='message'>
+      <li>
+        <span class='glyphicon glyphicon-thumbs-up upvote orange' data-id='{{ id }}'></span>
+        <span class='username'>{{ userName }}</span>
+        <span class='content'>{{ Content }}</span>
+      </li>
+    </div>
+  </script>
+  <script id="immortal-message-template" type="text/x-handlebars-template">
+    <ul class='immortalMessageList'>
+      <li>
+        <span class='immortal-content'>{{ content }}</span></br>
+        <span class='user-name'>{{ userName }}</span>
+        <span class='time'>{{ timeStamp }}</span>
+      </li>
+    </ul>
+  </script>
+  <!-- End Handlebars Templates -->
+
   <script src="http://cdnjs.cloudflare.com/ajax/libs/Faker/0.7.2/MinFaker.js"></script>
   <script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
   <script src= "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
+  <script src="javascripts/handlebars-v1.3.0.js"></script>
   <script src="javascripts/Window.js"></script>
   <script src="javascripts/ImmortalView.js"></script>
   <script src="javascripts/ImmortalListItem.js"></script>
@@ -82,6 +108,7 @@
   <script src="javascripts/Session.js"></script>
   <script src="javascripts/ImmortalMessage.js"></script>
   <script src="javascripts/EventHandler.js"></script>
+  <script src="javascripts/VoteView.js"></script>
   <script src="javascripts/ServerRequest.js"></script>
   <script src="javascripts/ChatView.js"></script>
   <script src="javascripts/ImmortalView.js"></script>
