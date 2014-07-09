@@ -12,6 +12,7 @@ var Trollguard = (function(){
 		counter += 1;
 	};
 
+	// TODO: refactor
 	var allowSend = function(){
 		var currentIndex = parseInt(counter)-1;
 		var oldIndex = currentIndex-7;

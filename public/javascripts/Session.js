@@ -10,7 +10,6 @@ var Session = (function() {
 	};
 
 	var checkTime = function() {
-		console.log("checking time")
 		var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 600000; // 10 minutes
 		var oneMinuteLeft = parseInt(localStorage.getItem("EntryTime")) + 540000;
 		if (parseInt(Date.now()) > sessionEnd) {

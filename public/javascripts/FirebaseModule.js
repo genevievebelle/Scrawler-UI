@@ -13,7 +13,6 @@ var FirebaseModule = (function(){
 
   var bindFirebaseActions = function() {
     var query = fb.limit(200);
-    // Should be in EventHandler?
     query.on('child_added', FirebaseModule.snapshotFunction);
   };
 
@@ -22,18 +21,17 @@ var FirebaseModule = (function(){
   // type thing but it is also talking to Firebase.
   var sendMessageClickEvent = function(event) {
     event.preventDefault();
-    var check = Trollguard.checkSpammer();
-    if(check==true){
+    var checkIfNotSpamming = Trollguard.checkSpammer();
+    if(checkIfNotSpamming == true){
       var text = Window.messageInput.val();
       fb.push({text: text, username: localStorage.getItem("Username")});
       Window.messageInput.val('');
     } else {
-      Trollguard.fadeSend();
-      ChatView.appendSystemMessage("Messaging disabled for 5 seconds");
+      Window.fadeSendButton();
+      Window.appendSystemMessage("Messaging disabled for 5 seconds");
     };
   };
 
-  // Appending to divs? Don't think this is a Firebase thing but a view thing.
   var snapshotFunction = function(snapshot) {
     var message = snapshot.val();
     ChatView.appendMessageDiv(message.text, message.username, snapshot.name());

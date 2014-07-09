@@ -22,6 +22,16 @@ var ServerRequest = (function(){
       });
   };
 
+  var upVoteAjaxRequest = function(msg) {
+    $.ajax({
+      method: "POST",
+      url: "http://scrawler.azurewebsites.net/chat/savemessage",
+      data: msg,
+      success: EventHandler.changeMessageClass,
+      failure: Errors.ajaxErrorMessage
+    });
+  };
+
   // So you expose getRoomInfo and getRoomId publicly when they are not
   // actually used anywhere outside this module. I presume this was done
   // to those methods testable. While this might be in part due to the
