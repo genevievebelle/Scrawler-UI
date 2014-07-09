@@ -37,3 +37,15 @@
   display: inline-block;
   border: 5px dashed black; 
 }
+
+.hand-img {
+  display: inline-block;
+  font-size: 50px;
+  position: relative;
+  top: 6px;
+}
+
+.hand {
+  position: relative;
+  top: -15px;
+}

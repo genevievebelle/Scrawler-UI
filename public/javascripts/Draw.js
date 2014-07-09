@@ -17,13 +17,12 @@ var Draw = (function () {
     //Setup each color palette & add it to the screen
     var colors = ["HAND", "ERA", "000","f00","0f0","00f","f05","f80","cf0","08f","408", "fff"];
     for (c in colors) {
-      if (colors[c] === "ERA") {
+      if (colors[c] === "HAND") {
+        console.log(colors[c]);
         var item = $('<div/>').css("background-color", '#fff').addClass("colorbox").addClass("hand");
-      };
-      if (colors[c] === "ERA") {
-      var item = $('<div/>').css("background-color", '#fff').addClass("colorbox").addClass("eraser");
-      }
-      else {
+      } else if (colors[c] === "ERA") {
+        var item = $('<div/>').css("background-color", '#fff').addClass("colorbox").addClass("eraser");
+      } else {
       var item = $('<div/>').css("background-color", '#' + colors[c]).addClass("colorbox");
       };
       item.click((function () {
@@ -35,6 +34,8 @@ var Draw = (function () {
       })());
       item.appendTo('#colorholder');
     }
+
+    $('.hand').append("<span class='glyphicon glyphicon-hand-up hand-img'></span>");
 
     myCanvas.onmousedown = function () {mouseDown = 1;};
     myCanvas.onmouseout = myCanvas.onmouseup = function () {
