@@ -4,7 +4,7 @@ var Draw = (function () {
     var pixSize = 4, lastPoint = null, currentColor = "000", mouseDown = 0;
 
     //Create a reference to the pixel data for our drawing.
-    var pixelDataRef = new Firebase('https://intense-fire-3380.firebaseio.com/draw'+ FirebaseModule.roomKey);
+    var pixelDataRef = new Firebase('https://intense-fire-3380.firebaseio.com/draw'+ FirebaseModule.getRoom());
 
     // Set up our canvas
     var myCanvas = document.getElementById('drawing-canvas');
@@ -15,7 +15,7 @@ var Draw = (function () {
     }
 
     //Setup each color palette & add it to the screen
-    var colors = ["HAND", "ERA", "000","f00","0f0","00f","f05","f80","0f8","cf0","08f","408", "fff"];
+    var colors = ["HAND", "ERA", "000","f00","0f0","00f","f05","f80","cf0","08f","408", "fff"];
     for (c in colors) {
       if (colors[c] === "ERA") {
         var item = $('<div/>').css("background-color", '#fff').addClass("colorbox").addClass("hand");
