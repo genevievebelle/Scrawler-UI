@@ -61,7 +61,8 @@ h2 {
 }
 
 .room-name {
-	font-size: 40px;
+	font-size: 45px;
+	margin: 20px 0;
 }
 
 
@@ -131,6 +132,9 @@ h2 {
 	background-color: #F3F2F7;
 }
 
+.message li .username {
+	font-size: 20px;
+}
 /* -------------- Bottom Segment -------------- */
 
 
