@@ -56,7 +56,7 @@ h2 {
 }
 
 .logo-img {
-	padding-top: 5px;
+	padding-top: 20px;
 	padding-left: 0px;
 	padding-right: 10px;
 	width: 250px;
@@ -91,12 +91,15 @@ h2 {
 
 .immortalMessageList li .time {
 	float: right;
-	font-size: 20px;
+	padding-right: 10px;
+	font-size: 25px;
+	color: #32363B;
 }
 
 .immortalMessageList li .user-name {
 	float: left;
-	font-size: 20px;
+	font-size: 25px;
+	color: #32363B;
 }
 
 /* -------------- Main Message Segment -------------- */
