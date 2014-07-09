@@ -16,7 +16,7 @@ var ServerRequest = (function(){
       method: "POST",
       url: "http://scrawler.azurewebsites.net/chat/savemessage",
       data: msg,
-      success: EventHandler.changeMessageClass,
+      success: VoteView.changeMessageClass,
       failure: Errors.ajaxErrorMessage
     });
   };
@@ -24,6 +24,7 @@ var ServerRequest = (function(){
   return {
     sendRoomInfoRequest: sendRoomInfoRequest,
     roomInfoBaseUrl: roomInfoBaseUrl,
-    incomingUrl: incomingUrl
+    incomingUrl: incomingUrl,
+    upVoteAjaxRequest: upVoteAjaxRequest
   };
 })();

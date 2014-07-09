@@ -1,21 +1,15 @@
 var EventHandler = (function() {
-  var jQueryObject;
 
   var bindClickEvents = function() {
-    $(Window.chatLog).on('click', ".upvote", VoteView.upVote);
+    $(Window.chatLog).on('click', '.upvote', VoteView.upVote);
     Window.sendButton.on('click', EventHandler.sendMessageClickEvent);
     $(".draw-btn").on('click', Drawing.changeTab);
     $(".logo-img").on('click', Drawing.changeTab);
   };
 
-  var changeMessageClass = function(){
-    jQueryObject.removeClass("orange");
-    jQueryObject.addClass("red");
-  };
-
   var sendMessageClickEvent = function(event) {
     event.preventDefault();
-    var checkIfNotSpamming = Trollguard.checkSpammer();
+    var checkIfNotSpamming = TrollGuard.checkSpammer();
     if(checkIfNotSpamming == true){
       //if the user is not spamming, allow them to send a message.
       var message = Window.messageInput.val();
@@ -30,6 +24,6 @@ var EventHandler = (function() {
 
   return {
     bindClickEvents: bindClickEvents,
-    sendMessageClickEvent: sendMessageClickEvent
+    sendMessageClickEvent: sendMessageClickEvent,
   };
 })();
