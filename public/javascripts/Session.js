@@ -9,6 +9,7 @@ var Session = (function() {
 		localStorage.setItem("EntryTime", Date.now());
 	};
 
+
 	var checkTime = function() {
 		console.log("checking time")
 		var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 600000; // 10 minutes
@@ -20,13 +21,20 @@ var Session = (function() {
 		}
 	};
 
+	var timeUp = function() {
+		var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 600000; // 10 minutes
+		return (parseInt(Date.now()) > sessionEnd);
+	};
+
 	var expireSession = function() {
+		if (timeUp()) {
 			Window.clearChat();
 	};
 
 	return {
 		initialSet: initialSet,
 		checkTime: checkTime
+		expireSession: expireSession	
 	}
 })();
 
