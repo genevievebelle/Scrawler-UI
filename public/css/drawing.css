@@ -15,7 +15,7 @@
 .draw-container {
 	  margin: 0 auto;
 	  overflow: hidden;
-	  width: 1000px; 
+	  width: 1000px;
 	  height: 850px;
 	  margin-top: 10px;
 	  overflow: hidden;
@@ -28,4 +28,12 @@
   margin: 1px;
   display: inline-block;
   border: 3px solid black;
+}
+
+.eraser {
+  width: 60px;
+  height: 66px;
+  margin: 1px;
+  display: inline-block;
+  border: 5px dashed black; 
 }

@@ -1,7 +1,8 @@
 var Session = (function() {
 	var initialSet = function() {
 		localStorage.setItem("EntryTime", Date.now());
-		setInterval("Session.expireSession()", 10000);
+		localStorage.setItem("Username", Faker.Name.findName());
+		setInterval("Session.checkTime()", 60000);
 	};
 
 	var reset = function() {
@@ -10,29 +11,29 @@ var Session = (function() {
 
 	var checkTime = function() {
 		var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 600000; // 10 minutes
-
-		if (parseInt(Date.now()) < sessionEnd) {
-			console.log("Time remaining:", (sessionEnd - parseInt(Date.now())));
-		} else {
-			return true;
+		var oneMinuteLeft = parseInt(localStorage.getItem("EntryTime")) + 540000;
+		if (parseInt(Date.now()) > sessionEnd) {
+			expireSession();
+		} else if (parseInt(Date.now()) > oneMinuteLeft) {
+			Window.appendSystemMessage("Your time's almost up! Scan the QR code again in the next minute to keep Scrawling.");
 		}
 	};
 
-	var expireSession = function() {
-		if (checkTime() == true) {
-			alert("Times up! Scan QR code again to refresh the session.");
-			clearChat();
-		};
+	var timeUp = function() {
+		var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 600000; // 10 minutes
+		return (parseInt(Date.now()) > sessionEnd);
 	};
 
-	var clearChat = function(){
-		$(".messagesDiv").empty();
-		$("#form").empty();
+	var expireSession = function() {
+		if (timeUp()) {
+			Window.clearChat();
+		};
 	};
 
 	return {
 		initialSet: initialSet,
-		expireSession: expireSession
-	}
+		checkTime: checkTime,
+		expireSession: expireSession	
+	};
 })();
 

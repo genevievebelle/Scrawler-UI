@@ -17,7 +17,7 @@ describe("ServerRequest", function() {
       spyOn(ImmortalMessage, "buildImmortalMessage");
       spyOn(FirebaseModule, "createFireBase");
       spyOn(FirebaseModule, "bindFirebaseActions");
-      ServerRequest.getRoomInfo(data);
+      ServerRequest.setRoomInfo(data);
     });
 
     it("calls buildImmortalMessage on ImmortalMessage", function() {
@@ -40,7 +40,7 @@ describe("ServerRequest", function() {
 
     beforeEach(function() {
       spyOn(ServerRequest, "getRoomId").and.returnValue("HDK72");
-      spyOn(ServerRequest, "getRoomInfo");
+      spyOn(ServerRequest, "setRoomInfo");
 
       spyOn($,'ajax').and.callFake(function(e) {
         ajax_params = e;
@@ -55,7 +55,7 @@ describe("ServerRequest", function() {
 
     it("handles successful result of Ajax request", function () {
       ServerRequest.sendRoomInfoRequest();
-      expect(ServerRequest.getRoomInfo).toHaveBeenCalled();
+      expect(ServerRequest.setRoomInfo).toHaveBeenCalled();
     });
   });
 });
