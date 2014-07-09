@@ -2,28 +2,30 @@ var Session = (function() {
 	var initialSet = function() {
 		localStorage.setItem("EntryTime", Date.now());
 		localStorage.setItem("Username", Faker.Name.findName());
-		setInterval("Session.expireSession()", 10000);
+		setInterval("Session.checkTime()", 60000);
 	};
 
 	var reset = function() {
 		localStorage.setItem("EntryTime", Date.now());
 	};
 
-	var timeUp = function() {
+	var checkTime = function() {
 		var sessionEnd = parseInt(localStorage.getItem("EntryTime")) + 600000; // 10 minutes
-
-		return (parseInt(Date.now()) > sessionEnd);
+		var oneMinuteLeft = parseInt(localStorage.getItem("EntryTime")) + 540000;
+		if (parseInt(Date.now()) > sessionEnd) {
+			expireSession();
+		} else if (parseInt(Date.now()) > oneMinuteLeft) {
+			Window.appendSystemMessage("Your time's almost up! Scan the QR code again in the next minute to keep Scrawling.");
+		}
 	};
 
 	var expireSession = function() {
-		if (timeUp()) {
 			Window.clearChat();
-			Window.appendSystemMessage("Times up! Scan QR code again to refresh the session.");
-		};
 	};
 
 	return {
 		initialSet: initialSet,
-		expireSession: expireSession	}
+		checkTime: checkTime
+	}
 })();
 
