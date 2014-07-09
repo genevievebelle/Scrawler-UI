@@ -3,36 +3,39 @@ describe("ImmortalListItemView", function() {
   var immortalListItem = {content: "serious sizzlers?", messageId: 13, timeStamp: "July 4th", userName: "murdoch mckenzie"};
 
   beforeEach(function() {
-    // Be careful here I don't know to what scope this variable is being hoisted
-    // global? This you should be using this.newView here.
-    newView = new ImmortalListItemView(immortalListItem);
+    this.newView = new ImmortalListItemView(immortalListItem);
   });
 
   describe("new", function() {
 
     it("contains a list item wrapper", function() {
-      expect(newView.parentWrapper).toEqual('<li />');
+      expect(this.newView.parentWrapper).toEqual('<li />');
     });
 
     it("has a method for constructing an html string", function() {
-      expect(newView.buildHtml).toBeDefined();
+      expect(this.newView.buildHtml).toBeDefined();
     });
   });
 
-  // Would be good to test (with spys) that the methods that manipulate the DOM
-  // like ".html" are being called and with the expected things.
   describe("buildHtml", function() {
 
+    it("is called upon instantiation of a new ImmortalListItemView object", function() {
+      spyOn(ImmortalListItemView.prototype, "buildHtml");
+      this.otherView = new ImmortalListItemView(immortalListItem);
+      expect(ImmortalListItemView.prototype.buildHtml).toHaveBeenCalledWith(immortalListItem);
+    });
+
     it("returns a defined html property", function() {
-      newView.buildHtml(immortalListItem);
-      expect(newView.html).toBeDefined();
+      this.newView.buildHtml(immortalListItem);
+      expect(this.newView.html).toBeDefined();
     });
   });
 
   describe("htmlString", function() {
 
     it("constructs an html string from an immortalListItem", function() {
-      expect(newView.htmlStringConstructor(immortalListItem)).toEqual("serious sizzlers?</br><span class='time'>July 4th</span><span class='user-name'>murdoch mckenzie</span>");
+      var expected_string = "serious sizzlers?</br><span class='time'>July 4th</span><span class='user-name'>murdoch mckenzie</span>"
+      expect(this.newView.htmlStringConstructor(immortalListItem)).toEqual(expected_string);
     });
   });
 });

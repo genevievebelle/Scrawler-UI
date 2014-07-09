@@ -23,7 +23,6 @@ describe("ChatMessage", function(){
     });
   });
 
-  // You have an output for this method, test it.
   describe("constructHtml", function() {
 
     it("constructs a html string for the chat message object", function() {
