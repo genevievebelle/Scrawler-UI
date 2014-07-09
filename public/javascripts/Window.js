@@ -27,8 +27,6 @@ var Window = {
 		Window.sendButton.css("background-color", "#8A8A8A");
 	},
 
-	
-
   redirectTo: function(url) {
     window.location.href = url;
   }
